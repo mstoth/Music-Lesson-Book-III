@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4FFF5BD18F2EC7200E50485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BC18F2EC7200E50485 /* Foundation.framework */; };
+		A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */; };
+		A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5C018F2EC7200E50485 /* UIKit.framework */; };
+		A4FFF5C318F2EC7200E50485 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5C218F2EC7200E50485 /* CoreData.framework */; };
+		A4FFF5C918F2EC7200E50485 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5C718F2EC7200E50485 /* InfoPlist.strings */; };
+		A4FFF5CB18F2EC7200E50485 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5CA18F2EC7200E50485 /* main.m */; };
+		A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */; };
+		A4FFF5D218F2EC7200E50485 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */; };
+		A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */; };
+		A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */; };
+		A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */; };
+		A4FFF5DE18F2EC7200E50485 /* MLB3DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5DD18F2EC7200E50485 /* MLB3DetailViewController.m */; };
+		A4FFF5E018F2EC7200E50485 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5DF18F2EC7200E50485 /* Images.xcassets */; };
+		A4FFF5E718F2EC7200E50485 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5E618F2EC7200E50485 /* XCTest.framework */; };
+		A4FFF5E818F2EC7200E50485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BC18F2EC7200E50485 /* Foundation.framework */; };
+		A4FFF5E918F2EC7200E50485 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5C018F2EC7200E50485 /* UIKit.framework */; };
+		A4FFF5EA18F2EC7200E50485 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5C218F2EC7200E50485 /* CoreData.framework */; };
+		A4FFF5F218F2EC7200E50485 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5F018F2EC7200E50485 /* InfoPlist.strings */; };
+		A4FFF5F418F2EC7300E50485 /* MusicLessonBookIIITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5F318F2EC7300E50485 /* MusicLessonBookIIITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4FFF5EB18F2EC7200E50485 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4FFF5B118F2EC7100E50485 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4FFF5B818F2EC7100E50485;
+			remoteInfo = MusicLessonBookIII;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A4FFF5B918F2EC7100E50485 /* MusicLessonBookIII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicLessonBookIII.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FFF5BC18F2EC7200E50485 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A4FFF5C018F2EC7200E50485 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A4FFF5C218F2EC7200E50485 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A4FFF5C618F2EC7200E50485 /* MusicLessonBookIII-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MusicLessonBookIII-Info.plist"; sourceTree = "<group>"; };
+		A4FFF5C818F2EC7200E50485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A4FFF5CA18F2EC7200E50485 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4FFF5CC18F2EC7200E50485 /* MusicLessonBookIII-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicLessonBookIII-Prefix.pch"; sourceTree = "<group>"; };
+		A4FFF5CD18F2EC7200E50485 /* MLB3AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLB3AppDelegate.h; sourceTree = "<group>"; };
+		A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLB3AppDelegate.m; sourceTree = "<group>"; };
+		A4FFF5D118F2EC7200E50485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A4FFF5D418F2EC7200E50485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		A4FFF5D718F2EC7200E50485 /* MusicLessonBookIII.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicLessonBookIII.xcdatamodel; sourceTree = "<group>"; };
+		A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLB3MasterViewController.h; sourceTree = "<group>"; };
+		A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLB3MasterViewController.m; sourceTree = "<group>"; };
+		A4FFF5DC18F2EC7200E50485 /* MLB3DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLB3DetailViewController.h; sourceTree = "<group>"; };
+		A4FFF5DD18F2EC7200E50485 /* MLB3DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLB3DetailViewController.m; sourceTree = "<group>"; };
+		A4FFF5DF18F2EC7200E50485 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A4FFF5E518F2EC7200E50485 /* MusicLessonBookIIITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicLessonBookIIITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FFF5E618F2EC7200E50485 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A4FFF5EF18F2EC7200E50485 /* MusicLessonBookIIITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MusicLessonBookIIITests-Info.plist"; sourceTree = "<group>"; };
+		A4FFF5F118F2EC7200E50485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A4FFF5F318F2EC7300E50485 /* MusicLessonBookIIITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicLessonBookIIITests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4FFF5B618F2EC7100E50485 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */,
+				A4FFF5C318F2EC7200E50485 /* CoreData.framework in Frameworks */,
+				A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */,
+				A4FFF5BD18F2EC7200E50485 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4FFF5E218F2EC7200E50485 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FFF5E718F2EC7200E50485 /* XCTest.framework in Frameworks */,
+				A4FFF5EA18F2EC7200E50485 /* CoreData.framework in Frameworks */,
+				A4FFF5E918F2EC7200E50485 /* UIKit.framework in Frameworks */,
+				A4FFF5E818F2EC7200E50485 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A4FFF5B018F2EC7100E50485 = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5C418F2EC7200E50485 /* MusicLessonBookIII */,
+				A4FFF5ED18F2EC7200E50485 /* MusicLessonBookIIITests */,
+				A4FFF5BB18F2EC7200E50485 /* Frameworks */,
+				A4FFF5BA18F2EC7100E50485 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4FFF5BA18F2EC7100E50485 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5B918F2EC7100E50485 /* MusicLessonBookIII.app */,
+				A4FFF5E518F2EC7200E50485 /* MusicLessonBookIIITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4FFF5BB18F2EC7200E50485 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5BC18F2EC7200E50485 /* Foundation.framework */,
+				A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */,
+				A4FFF5C018F2EC7200E50485 /* UIKit.framework */,
+				A4FFF5C218F2EC7200E50485 /* CoreData.framework */,
+				A4FFF5E618F2EC7200E50485 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4FFF5C418F2EC7200E50485 /* MusicLessonBookIII */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5CD18F2EC7200E50485 /* MLB3AppDelegate.h */,
+				A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */,
+				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
+				A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */,
+				A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */,
+				A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */,
+				A4FFF5DC18F2EC7200E50485 /* MLB3DetailViewController.h */,
+				A4FFF5DD18F2EC7200E50485 /* MLB3DetailViewController.m */,
+				A4FFF5DF18F2EC7200E50485 /* Images.xcassets */,
+				A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */,
+				A4FFF5C518F2EC7200E50485 /* Supporting Files */,
+			);
+			path = MusicLessonBookIII;
+			sourceTree = "<group>";
+		};
+		A4FFF5C518F2EC7200E50485 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5C618F2EC7200E50485 /* MusicLessonBookIII-Info.plist */,
+				A4FFF5C718F2EC7200E50485 /* InfoPlist.strings */,
+				A4FFF5CA18F2EC7200E50485 /* main.m */,
+				A4FFF5CC18F2EC7200E50485 /* MusicLessonBookIII-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4FFF5ED18F2EC7200E50485 /* MusicLessonBookIIITests */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5F318F2EC7300E50485 /* MusicLessonBookIIITests.m */,
+				A4FFF5EE18F2EC7200E50485 /* Supporting Files */,
+			);
+			path = MusicLessonBookIIITests;
+			sourceTree = "<group>";
+		};
+		A4FFF5EE18F2EC7200E50485 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4FFF5EF18F2EC7200E50485 /* MusicLessonBookIIITests-Info.plist */,
+				A4FFF5F018F2EC7200E50485 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4FFF5B818F2EC7100E50485 /* MusicLessonBookIII */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4FFF5F718F2EC7300E50485 /* Build configuration list for PBXNativeTarget "MusicLessonBookIII" */;
+			buildPhases = (
+				A4FFF5B518F2EC7100E50485 /* Sources */,
+				A4FFF5B618F2EC7100E50485 /* Frameworks */,
+				A4FFF5B718F2EC7100E50485 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicLessonBookIII;
+			productName = MusicLessonBookIII;
+			productReference = A4FFF5B918F2EC7100E50485 /* MusicLessonBookIII.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A4FFF5E418F2EC7200E50485 /* MusicLessonBookIIITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4FFF5FA18F2EC7300E50485 /* Build configuration list for PBXNativeTarget "MusicLessonBookIIITests" */;
+			buildPhases = (
+				A4FFF5E118F2EC7200E50485 /* Sources */,
+				A4FFF5E218F2EC7200E50485 /* Frameworks */,
+				A4FFF5E318F2EC7200E50485 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4FFF5EC18F2EC7200E50485 /* PBXTargetDependency */,
+			);
+			name = MusicLessonBookIIITests;
+			productName = MusicLessonBookIIITests;
+			productReference = A4FFF5E518F2EC7200E50485 /* MusicLessonBookIIITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4FFF5B118F2EC7100E50485 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MLB3;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Michael Toth";
+				TargetAttributes = {
+					A4FFF5E418F2EC7200E50485 = {
+						TestTargetID = A4FFF5B818F2EC7100E50485;
+					};
+				};
+			};
+			buildConfigurationList = A4FFF5B418F2EC7100E50485 /* Build configuration list for PBXProject "MusicLessonBookIII" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4FFF5B018F2EC7100E50485;
+			productRefGroup = A4FFF5BA18F2EC7100E50485 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4FFF5B818F2EC7100E50485 /* MusicLessonBookIII */,
+				A4FFF5E418F2EC7200E50485 /* MusicLessonBookIIITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4FFF5B718F2EC7100E50485 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */,
+				A4FFF5E018F2EC7200E50485 /* Images.xcassets in Resources */,
+				A4FFF5D218F2EC7200E50485 /* Main_iPhone.storyboard in Resources */,
+				A4FFF5C918F2EC7200E50485 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4FFF5E318F2EC7200E50485 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FFF5F218F2EC7200E50485 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4FFF5B518F2EC7100E50485 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */,
+				A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */,
+				A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */,
+				A4FFF5DE18F2EC7200E50485 /* MLB3DetailViewController.m in Sources */,
+				A4FFF5CB18F2EC7200E50485 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4FFF5E118F2EC7200E50485 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FFF5F418F2EC7300E50485 /* MusicLessonBookIIITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4FFF5EC18F2EC7200E50485 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4FFF5B818F2EC7100E50485 /* MusicLessonBookIII */;
+			targetProxy = A4FFF5EB18F2EC7200E50485 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A4FFF5C718F2EC7200E50485 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4FFF5C818F2EC7200E50485 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4FFF5D118F2EC7200E50485 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4FFF5D418F2EC7200E50485 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A4FFF5F018F2EC7200E50485 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4FFF5F118F2EC7200E50485 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4FFF5F518F2EC7300E50485 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4FFF5F618F2EC7300E50485 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4FFF5F818F2EC7300E50485 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
+				INFOPLIST_FILE = "MusicLessonBookIII/MusicLessonBookIII-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A4FFF5F918F2EC7300E50485 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
+				INFOPLIST_FILE = "MusicLessonBookIII/MusicLessonBookIII-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A4FFF5FB18F2EC7300E50485 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MusicLessonBookIII.app/MusicLessonBookIII";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MusicLessonBookIIITests/MusicLessonBookIIITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A4FFF5FC18F2EC7300E50485 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MusicLessonBookIII.app/MusicLessonBookIII";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
+				INFOPLIST_FILE = "MusicLessonBookIIITests/MusicLessonBookIIITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4FFF5B418F2EC7100E50485 /* Build configuration list for PBXProject "MusicLessonBookIII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FFF5F518F2EC7300E50485 /* Debug */,
+				A4FFF5F618F2EC7300E50485 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4FFF5F718F2EC7300E50485 /* Build configuration list for PBXNativeTarget "MusicLessonBookIII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FFF5F818F2EC7300E50485 /* Debug */,
+				A4FFF5F918F2EC7300E50485 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A4FFF5FA18F2EC7300E50485 /* Build configuration list for PBXNativeTarget "MusicLessonBookIIITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FFF5FB18F2EC7300E50485 /* Debug */,
+				A4FFF5FC18F2EC7300E50485 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A4FFF5D718F2EC7200E50485 /* MusicLessonBookIII.xcdatamodel */,
+			);
+			currentVersion = A4FFF5D718F2EC7200E50485 /* MusicLessonBookIII.xcdatamodel */;
+			path = MusicLessonBookIII.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A4FFF5B118F2EC7100E50485 /* Project object */;
+}
