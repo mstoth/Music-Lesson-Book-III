@@ -7,6 +7,7 @@
 //
 
 #import "MLB3MasterViewController.h"
+#import "Student.h"
 
 #import "MLB3DetailViewController.h"
 
@@ -34,6 +35,8 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (MLB3DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    self.title = NSLocalizedString(@"Students", @"Students");
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,7 +53,7 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    [newManagedObject setValue:NSLocalizedString(@"New Student", @"New Student") forKey:@"name"];
     
     // Save the context.
     NSError *error = nil;
@@ -114,7 +117,9 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        self.detailViewController.detailItem = object;
+        Student *selectedStudent = (Student *)object;
+        self.detailViewController.title = selectedStudent.name;
+        self.detailViewController.student = (Student *)object;
     }
 }
 
@@ -123,9 +128,10 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
+        [[segue destinationViewController] setStudent:(Student *)object];
     }
 }
+
 
 #pragma mark - Fetched results controller
 
@@ -137,14 +143,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Student" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -229,7 +235,12 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    if ([object valueForKey:@"phone"] == nil) {
+        cell.detailTextLabel.text = @"No Phone";
+    } else {
+        cell.detailTextLabel.text = [[object valueForKey:@"phone"] description];
+    }
 }
 
 @end

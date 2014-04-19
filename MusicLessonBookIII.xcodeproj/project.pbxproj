@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A405A7B918F330C5003F4595 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A405A7BB18F330C5003F4595 /* Localizable.strings */; };
+		A405A7CD18F346EE003F4595 /* MLB3EditStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7BE18F346EE003F4595 /* MLB3EditStudentViewController.m */; };
+		A405A7CE18F346EE003F4595 /* MLB3EditStudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A405A7BF18F346EE003F4595 /* MLB3EditStudentViewController.xib */; };
+		A405A7CF18F346EE003F4595 /* MLB3EditLessonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7C018F346EE003F4595 /* MLB3EditLessonViewController.m */; };
+		A405A7D018F346EE003F4595 /* MLB3EditLessonViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = A405A7C218F346EE003F4595 /* MLB3EditLessonViewController.strings */; };
+		A405A7D118F346EE003F4595 /* MLB3DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7C418F346EE003F4595 /* MLB3DetailViewController.m */; };
+		A405A7D218F346EE003F4595 /* MLB3LessonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7C618F346EE003F4595 /* MLB3LessonTableViewController.m */; };
+		A405A7D318F346EE003F4595 /* MLB3LessonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7C818F346EE003F4595 /* MLB3LessonDetailViewController.m */; };
+		A405A7D418F346EE003F4595 /* MLB3NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7CA18F346EE003F4595 /* MLB3NoteViewController.m */; };
+		A405A7D518F346EE003F4595 /* MLB3PieceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */; };
+		A405A7DE18F34B13003F4595 /* Lesson.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7DD18F34B13003F4595 /* Lesson.m */; };
+		A405A7E118F34B14003F4595 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E018F34B14003F4595 /* Note.m */; };
+		A405A7E718F34B14003F4595 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E618F34B14003F4595 /* Piece.m */; };
+		A405A7EA18F34B14003F4595 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E918F34B14003F4595 /* Photo.m */; };
+		A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EC18F34B57003F4595 /* MLB3Store.m */; };
+		A405A7F018F34BBD003F4595 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EF18F34BBD003F4595 /* Student.m */; };
+		A405A7F218F34C3D003F4595 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A405A7F118F34C3D003F4595 /* DropboxSDK.framework */; };
+		A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B119009C2600747AD6 /* DBChooser.bundle */; };
+		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
+		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
+		A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */; };
 		A4FFF5BD18F2EC7200E50485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BC18F2EC7200E50485 /* Foundation.framework */; };
 		A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */; };
 		A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5C018F2EC7200E50485 /* UIKit.framework */; };
@@ -18,7 +39,6 @@
 		A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */; };
 		A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */; };
 		A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */; };
-		A4FFF5DE18F2EC7200E50485 /* MLB3DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FFF5DD18F2EC7200E50485 /* MLB3DetailViewController.m */; };
 		A4FFF5E018F2EC7200E50485 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4FFF5DF18F2EC7200E50485 /* Images.xcassets */; };
 		A4FFF5E718F2EC7200E50485 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5E618F2EC7200E50485 /* XCTest.framework */; };
 		A4FFF5E818F2EC7200E50485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BC18F2EC7200E50485 /* Foundation.framework */; };
@@ -39,6 +59,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A405A7B518F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		A405A7B618F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		A405A7B718F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A405A7B818F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A405A7BA18F330C5003F4595 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A405A7BC18F330F3003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A405A7BD18F346EE003F4595 /* MLB3EditStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3EditStudentViewController.h; sourceTree = "<group>"; };
+		A405A7BE18F346EE003F4595 /* MLB3EditStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3EditStudentViewController.m; sourceTree = "<group>"; };
+		A405A7BF18F346EE003F4595 /* MLB3EditStudentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLB3EditStudentViewController.xib; sourceTree = "<group>"; };
+		A405A7C018F346EE003F4595 /* MLB3EditLessonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3EditLessonViewController.m; sourceTree = "<group>"; };
+		A405A7C118F346EE003F4595 /* MLB3EditLessonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3EditLessonViewController.h; sourceTree = "<group>"; };
+		A405A7C218F346EE003F4595 /* MLB3EditLessonViewController.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MLB3EditLessonViewController.strings; sourceTree = "<group>"; };
+		A405A7C318F346EE003F4595 /* MLB3DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3DetailViewController.h; sourceTree = "<group>"; };
+		A405A7C418F346EE003F4595 /* MLB3DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3DetailViewController.m; sourceTree = "<group>"; };
+		A405A7C518F346EE003F4595 /* MLB3LessonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3LessonTableViewController.h; sourceTree = "<group>"; };
+		A405A7C618F346EE003F4595 /* MLB3LessonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3LessonTableViewController.m; sourceTree = "<group>"; };
+		A405A7C718F346EE003F4595 /* MLB3LessonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3LessonDetailViewController.h; sourceTree = "<group>"; };
+		A405A7C818F346EE003F4595 /* MLB3LessonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3LessonDetailViewController.m; sourceTree = "<group>"; };
+		A405A7C918F346EE003F4595 /* MLB3NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3NoteViewController.h; sourceTree = "<group>"; };
+		A405A7CA18F346EE003F4595 /* MLB3NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3NoteViewController.m; sourceTree = "<group>"; };
+		A405A7CB18F346EE003F4595 /* MLB3PieceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PieceDetailViewController.h; sourceTree = "<group>"; };
+		A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceDetailViewController.m; sourceTree = "<group>"; };
+		A405A7DC18F34B13003F4595 /* Lesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson.h; sourceTree = "<group>"; };
+		A405A7DD18F34B13003F4595 /* Lesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesson.m; sourceTree = "<group>"; };
+		A405A7DF18F34B14003F4595 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		A405A7E018F34B14003F4595 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		A405A7E518F34B14003F4595 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
+		A405A7E618F34B14003F4595 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
+		A405A7E818F34B14003F4595 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		A405A7E918F34B14003F4595 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		A405A7EB18F34B57003F4595 /* MLB3Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3Store.h; sourceTree = "<group>"; };
+		A405A7EC18F34B57003F4595 /* MLB3Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3Store.m; sourceTree = "<group>"; };
+		A405A7EE18F34BBD003F4595 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		A405A7EF18F34BBD003F4595 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		A405A7F118F34C3D003F4595 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		A42279B119009C2600747AD6 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		A42279B31900B02300747AD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PiecesChannel.h; sourceTree = "<group>"; };
+		A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PiecesChannel.m; sourceTree = "<group>"; };
+		A42279B81901EA5D00747AD6 /* MLB3PieceChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PieceChannel.h; sourceTree = "<group>"; };
+		A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceChannel.m; sourceTree = "<group>"; };
 		A4FFF5B918F2EC7100E50485 /* MusicLessonBookIII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicLessonBookIII.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FFF5BC18F2EC7200E50485 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,8 +116,6 @@
 		A4FFF5D718F2EC7200E50485 /* MusicLessonBookIII.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicLessonBookIII.xcdatamodel; sourceTree = "<group>"; };
 		A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLB3MasterViewController.h; sourceTree = "<group>"; };
 		A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLB3MasterViewController.m; sourceTree = "<group>"; };
-		A4FFF5DC18F2EC7200E50485 /* MLB3DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLB3DetailViewController.h; sourceTree = "<group>"; };
-		A4FFF5DD18F2EC7200E50485 /* MLB3DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLB3DetailViewController.m; sourceTree = "<group>"; };
 		A4FFF5DF18F2EC7200E50485 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4FFF5E518F2EC7200E50485 /* MusicLessonBookIIITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicLessonBookIIITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FFF5E618F2EC7200E50485 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -73,6 +132,7 @@
 				A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */,
 				A4FFF5C318F2EC7200E50485 /* CoreData.framework in Frameworks */,
 				A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */,
+				A405A7F218F34C3D003F4595 /* DropboxSDK.framework in Frameworks */,
 				A4FFF5BD18F2EC7200E50485 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +173,7 @@
 		A4FFF5BB18F2EC7200E50485 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A405A7F118F34C3D003F4595 /* DropboxSDK.framework */,
 				A4FFF5BC18F2EC7200E50485 /* Foundation.framework */,
 				A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */,
 				A4FFF5C018F2EC7200E50485 /* UIKit.framework */,
@@ -127,14 +188,47 @@
 			children = (
 				A4FFF5CD18F2EC7200E50485 /* MLB3AppDelegate.h */,
 				A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */,
+				A405A7BB18F330C5003F4595 /* Localizable.strings */,
 				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
 				A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */,
 				A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */,
 				A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */,
-				A4FFF5DC18F2EC7200E50485 /* MLB3DetailViewController.h */,
-				A4FFF5DD18F2EC7200E50485 /* MLB3DetailViewController.m */,
+				A405A7C318F346EE003F4595 /* MLB3DetailViewController.h */,
+				A405A7C418F346EE003F4595 /* MLB3DetailViewController.m */,
+				A405A7C518F346EE003F4595 /* MLB3LessonTableViewController.h */,
+				A405A7C618F346EE003F4595 /* MLB3LessonTableViewController.m */,
+				A405A7BD18F346EE003F4595 /* MLB3EditStudentViewController.h */,
+				A405A7BE18F346EE003F4595 /* MLB3EditStudentViewController.m */,
+				A405A7BF18F346EE003F4595 /* MLB3EditStudentViewController.xib */,
+				A405A7C018F346EE003F4595 /* MLB3EditLessonViewController.m */,
+				A405A7C118F346EE003F4595 /* MLB3EditLessonViewController.h */,
+				A405A7C218F346EE003F4595 /* MLB3EditLessonViewController.strings */,
+				A405A7C718F346EE003F4595 /* MLB3LessonDetailViewController.h */,
+				A405A7C818F346EE003F4595 /* MLB3LessonDetailViewController.m */,
+				A405A7C918F346EE003F4595 /* MLB3NoteViewController.h */,
+				A405A7CA18F346EE003F4595 /* MLB3NoteViewController.m */,
+				A405A7CB18F346EE003F4595 /* MLB3PieceDetailViewController.h */,
+				A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */,
+				A405A7EB18F34B57003F4595 /* MLB3Store.h */,
+				A405A7EC18F34B57003F4595 /* MLB3Store.m */,
+				A42279B81901EA5D00747AD6 /* MLB3PieceChannel.h */,
+				A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */,
+				A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */,
+				A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */,
+				A42279B31900B02300747AD6 /* Settings.bundle */,
 				A4FFF5DF18F2EC7200E50485 /* Images.xcassets */,
+				A405A7DC18F34B13003F4595 /* Lesson.h */,
+				A405A7E818F34B14003F4595 /* Photo.h */,
+				A405A7E918F34B14003F4595 /* Photo.m */,
+				A405A7E518F34B14003F4595 /* Piece.h */,
+				A405A7E618F34B14003F4595 /* Piece.m */,
+				A405A7DF18F34B14003F4595 /* Note.h */,
+				A405A7E018F34B14003F4595 /* Note.m */,
+				A405A7DD18F34B13003F4595 /* Lesson.m */,
 				A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */,
+				A405A7EE18F34BBD003F4595 /* Student.h */,
+				A405A7EF18F34BBD003F4595 /* Student.m */,
+				A42279B119009C2600747AD6 /* DBChooser.bundle */,
 				A4FFF5C518F2EC7200E50485 /* Supporting Files */,
 			);
 			path = MusicLessonBookIII;
@@ -229,6 +323,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = A4FFF5B018F2EC7100E50485;
 			productRefGroup = A4FFF5BA18F2EC7100E50485 /* Products */;
@@ -246,9 +341,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A405A7B918F330C5003F4595 /* Localizable.strings in Resources */,
+				A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */,
 				A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */,
+				A405A7D018F346EE003F4595 /* MLB3EditLessonViewController.strings in Resources */,
+				A405A7CE18F346EE003F4595 /* MLB3EditStudentViewController.xib in Resources */,
 				A4FFF5E018F2EC7200E50485 /* Images.xcassets in Resources */,
 				A4FFF5D218F2EC7200E50485 /* Main_iPhone.storyboard in Resources */,
+				A42279B41900B02300747AD6 /* Settings.bundle in Resources */,
 				A4FFF5C918F2EC7200E50485 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,11 +368,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A405A7CD18F346EE003F4595 /* MLB3EditStudentViewController.m in Sources */,
+				A405A7DE18F34B13003F4595 /* Lesson.m in Sources */,
+				A405A7F018F34BBD003F4595 /* Student.m in Sources */,
 				A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */,
 				A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */,
+				A405A7D218F346EE003F4595 /* MLB3LessonTableViewController.m in Sources */,
+				A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */,
+				A405A7E118F34B14003F4595 /* Note.m in Sources */,
 				A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */,
-				A4FFF5DE18F2EC7200E50485 /* MLB3DetailViewController.m in Sources */,
+				A405A7D318F346EE003F4595 /* MLB3LessonDetailViewController.m in Sources */,
+				A405A7D418F346EE003F4595 /* MLB3NoteViewController.m in Sources */,
+				A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */,
+				A405A7D518F346EE003F4595 /* MLB3PieceDetailViewController.m in Sources */,
+				A405A7CF18F346EE003F4595 /* MLB3EditLessonViewController.m in Sources */,
+				A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */,
+				A405A7EA18F34B14003F4595 /* Photo.m in Sources */,
+				A405A7E718F34B14003F4595 /* Piece.m in Sources */,
 				A4FFF5CB18F2EC7200E50485 /* main.m in Sources */,
+				A405A7D118F346EE003F4595 /* MLB3DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,10 +409,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A405A7BB18F330C5003F4595 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A405A7BA18F330C5003F4595 /* en */,
+				A405A7BC18F330F3003F4595 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A4FFF5C718F2EC7200E50485 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A4FFF5C818F2EC7200E50485 /* en */,
+				A405A7B718F33057003F4595 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -307,6 +431,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A4FFF5D118F2EC7200E50485 /* Base */,
+				A405A7B518F33057003F4595 /* es */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -315,6 +440,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A4FFF5D418F2EC7200E50485 /* Base */,
+				A405A7B618F33057003F4595 /* es */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
@@ -323,6 +449,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A4FFF5F118F2EC7200E50485 /* en */,
+				A405A7B818F33057003F4595 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -407,6 +534,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
 				INFOPLIST_FILE = "MusicLessonBookIII/MusicLessonBookIII-Info.plist";
@@ -420,6 +551,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
 				INFOPLIST_FILE = "MusicLessonBookIII/MusicLessonBookIII-Info.plist";
@@ -487,6 +622,7 @@
 				A4FFF5F918F2EC7300E50485 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4FFF5FA18F2EC7300E50485 /* Build configuration list for PBXNativeTarget "MusicLessonBookIIITests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +631,7 @@
 				A4FFF5FC18F2EC7300E50485 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
