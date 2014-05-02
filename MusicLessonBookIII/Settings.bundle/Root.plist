@@ -6,6 +6,16 @@
 	<array>
 		<dict>
 			<key>Title</key>
+			<string>Instrument</string>
+			<key>Type</key>
+			<string>Text Field</string>
+			<key>DefaultValue</key>
+			<string>Piano</string>
+			<key>Key</key>
+			<string>MLB3InstrumentPrefKey</string>
+		</dict>
+		<dict>
+			<key>Title</key>
 			<string>DropBox</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>

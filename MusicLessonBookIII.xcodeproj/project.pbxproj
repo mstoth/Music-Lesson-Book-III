@@ -24,6 +24,7 @@
 		A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EC18F34B57003F4595 /* MLB3Store.m */; };
 		A405A7F018F34BBD003F4595 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EF18F34BBD003F4595 /* Student.m */; };
 		A405A7F218F34C3D003F4595 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A405A7F118F34C3D003F4595 /* DropboxSDK.framework */; };
+		A409DD481913DF550062F955 /* MLB3StudentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */; };
 		A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B119009C2600747AD6 /* DBChooser.bundle */; };
 		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
@@ -94,6 +95,8 @@
 		A405A7EE18F34BBD003F4595 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		A405A7EF18F34BBD003F4595 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		A405A7F118F34C3D003F4595 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		A409DD461913DF550062F955 /* MLB3StudentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3StudentTableViewCell.h; sourceTree = "<group>"; };
+		A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3StudentTableViewCell.m; sourceTree = "<group>"; };
 		A42279B119009C2600747AD6 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
 		A42279B31900B02300747AD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PiecesChannel.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */,
 				A405A7BB18F330C5003F4595 /* Localizable.strings */,
 				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
+				A409DD461913DF550062F955 /* MLB3StudentTableViewCell.h */,
+				A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */,
 				A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */,
 				A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */,
 				A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */,
@@ -377,6 +382,7 @@
 				A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */,
 				A405A7E118F34B14003F4595 /* Note.m in Sources */,
 				A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */,
+				A409DD481913DF550062F955 /* MLB3StudentTableViewCell.m in Sources */,
 				A405A7D318F346EE003F4595 /* MLB3LessonDetailViewController.m in Sources */,
 				A405A7D418F346EE003F4595 /* MLB3NoteViewController.m in Sources */,
 				A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "MLB3MasterViewController.h"
 #import "Student.h"
-
+#import "MLB3EditStudentViewController.h"
 #import "MLB3DetailViewController.h"
 
 @interface MLB3MasterViewController ()
@@ -80,7 +80,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StudentCell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -106,6 +106,14 @@
         }
     }   
 }
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    MLB3EditStudentViewController *vc = [[MLB3EditStudentViewController alloc] initWithNibName:nil bundle:nil];
+    Student *s = [[self.fetchedResultsController fetchedObjects] objectAtIndex:[indexPath row]];
+    [vc setStudent:s];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {

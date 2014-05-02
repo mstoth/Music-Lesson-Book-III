@@ -89,12 +89,23 @@
 
 
 - (IBAction)save:(UIButton *)sender {
+    NSError *error = nil;
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Piece"];
+
+    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = delegate.managedObjectContext;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND composer = %@",self.titleTextField.text, self.composerTextField.text];
+    [request setPredicate:predicate];
+    NSArray *result = [context executeFetchRequest:request error:&error];
+    if ([result count] > 1) {
+        [context deleteObject:self.piece];
+        self.piece = [result firstObject];
+    }
+    
     self.piece.title = self.titleTextField.text;
     self.piece.composer = self.composerTextField.text;
     self.piece.genre = self.genreTextField.text;
     self.piece.difficulty = [NSNumber numberWithInt:[self.difficultyTextField.text intValue]];
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = delegate.managedObjectContext;
     [context save:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -225,6 +236,14 @@
     if (sender.selectedSegmentIndex == 2) {
         // good teaching music
         piecesForTable = [[MLB3Store sharedStore] gtmPieces];
+        NSMutableArray *newPiecesForTable = [[NSMutableArray alloc] init];
+        for (MLB3PieceChannel *pc in piecesForTable) {
+            if ([[pc instrument] isEqual:@"Piano"]) {
+                [newPiecesForTable addObject:pc];
+            }
+        }
+        piecesForTable = newPiecesForTable;
+
         [self.tableView reloadData];
     }
 }
@@ -237,8 +256,21 @@
 - (void)GTMFilesReady:(NSNotification *)note {
     if ([self.sourceSegmentedControl selectedSegmentIndex] == 2) {
         piecesForTable = [[MLB3Store sharedStore] gtmPieces];
+        
+        NSMutableArray *newPiecesForTable = [[NSMutableArray alloc] init];
+        for (MLB3PieceChannel *pc in piecesForTable) {
+            if ([[pc instrument] isEqual:@"Piano"]) {
+                [newPiecesForTable addObject:pc];
+            }
+        }
+        piecesForTable = [[newPiecesForTable sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            MLB3PieceChannel *pc1 = obj1;
+            MLB3PieceChannel *pc2 = obj2;
+            return [[pc1 title] compare:[pc2 title]];
+        }] mutableCopy];
     }
     [self.tableView reloadData];
-    NSLog(@"%@\n %@\n %@\n",channel, [channel title], [channel composer]);
 }
+
+
 @end
