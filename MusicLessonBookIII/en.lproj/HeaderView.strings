@@ -1,0 +1,12 @@
+
+/* Class = "IBUIButton"; normalTitle = "Date"; ObjectID = "Dlw-T7-Y50"; */
+"Dlw-T7-Y50.normalTitle" = "Date";
+
+/* Class = "IBUIButton"; normalTitle = "Title"; ObjectID = "FIt-0q-mQU"; */
+"FIt-0q-mQU.normalTitle" = "Title";
+
+/* Class = "IBUILabel"; text = "Sort by:"; ObjectID = "JOC-gE-N6Y"; */
+"JOC-gE-N6Y.text" = "Sort by:";
+
+/* Class = "IBUIButton"; normalTitle = "Composer"; ObjectID = "xDE-mc-sCp"; */
+"xDE-mc-sCp.normalTitle" = "Composer";

@@ -7,13 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "Lesson.h"
 #import "MLB3Store.h"
+
+#define kMaxBPM 190
+#define kMinBPM 40
+#define kDefaultBPM 80
 
 @interface MLB3LessonDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSMutableDictionary *notes;
     NSManagedObjectContext *context;
+    BOOL metronomeOn;
+    NSThread *myThread;
+    CGFloat duration;
+
 }
+@property (weak, nonatomic) IBOutlet UITextField *metronomeTextField;
+@property (nonatomic, retain) IBOutlet UIButton *metronomeButton;
+- (IBAction)toggleMetronome:(id)sender;
+@property (nonatomic, retain) AVAudioPlayer *tickPlayer;
 - (IBAction)copyPreviousLesson:(id)sender;
 @property (strong, nonatomic) NSMutableArray *pieces;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

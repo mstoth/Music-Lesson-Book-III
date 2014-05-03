@@ -86,6 +86,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showRepertoire:(id)sender {
+    MLB3RepertoireTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Repertoire"];
+    [vc setStudent:self.student];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController

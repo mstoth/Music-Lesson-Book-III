@@ -25,6 +25,9 @@
 		A405A7F018F34BBD003F4595 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EF18F34BBD003F4595 /* Student.m */; };
 		A405A7F218F34C3D003F4595 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A405A7F118F34C3D003F4595 /* DropboxSDK.framework */; };
 		A409DD481913DF550062F955 /* MLB3StudentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */; };
+		A409DD4B1914692F0062F955 /* MLB3RepertoireTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */; };
+		A409DD4D191474490062F955 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A409DD4C191474490062F955 /* AVFoundation.framework */; };
+		A409DD501915A4520062F955 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A409DD521915A4520062F955 /* HeaderView.xib */; };
 		A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B119009C2600747AD6 /* DBChooser.bundle */; };
 		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
@@ -97,6 +100,12 @@
 		A405A7F118F34C3D003F4595 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		A409DD461913DF550062F955 /* MLB3StudentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3StudentTableViewCell.h; sourceTree = "<group>"; };
 		A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3StudentTableViewCell.m; sourceTree = "<group>"; };
+		A409DD491914692F0062F955 /* MLB3RepertoireTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3RepertoireTableViewController.h; sourceTree = "<group>"; };
+		A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3RepertoireTableViewController.m; sourceTree = "<group>"; };
+		A409DD4C191474490062F955 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A409DD511915A4520062F955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HeaderView.xib; sourceTree = "<group>"; };
+		A409DD541915A4740062F955 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HeaderView.strings; sourceTree = "<group>"; };
+		A409DD561915A47B0062F955 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HeaderView.strings; sourceTree = "<group>"; };
 		A42279B119009C2600747AD6 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
 		A42279B31900B02300747AD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PiecesChannel.h; sourceTree = "<group>"; };
@@ -132,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A409DD4D191474490062F955 /* AVFoundation.framework in Frameworks */,
 				A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */,
 				A4FFF5C318F2EC7200E50485 /* CoreData.framework in Frameworks */,
 				A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */,
@@ -176,6 +186,7 @@
 		A4FFF5BB18F2EC7200E50485 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A409DD4C191474490062F955 /* AVFoundation.framework */,
 				A405A7F118F34C3D003F4595 /* DropboxSDK.framework */,
 				A4FFF5BC18F2EC7200E50485 /* Foundation.framework */,
 				A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */,
@@ -193,6 +204,9 @@
 				A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */,
 				A405A7BB18F330C5003F4595 /* Localizable.strings */,
 				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
+				A409DD491914692F0062F955 /* MLB3RepertoireTableViewController.h */,
+				A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */,
+				A409DD521915A4520062F955 /* HeaderView.xib */,
 				A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */,
 				A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */,
 				A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */,
@@ -347,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A405A7B918F330C5003F4595 /* Localizable.strings in Resources */,
+				A409DD501915A4520062F955 /* HeaderView.xib in Resources */,
 				A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */,
 				A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */,
 				A405A7D018F346EE003F4595 /* MLB3EditLessonViewController.strings in Resources */,
@@ -374,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A405A7CD18F346EE003F4595 /* MLB3EditStudentViewController.m in Sources */,
+				A409DD4B1914692F0062F955 /* MLB3RepertoireTableViewController.m in Sources */,
 				A405A7DE18F34B13003F4595 /* Lesson.m in Sources */,
 				A405A7F018F34BBD003F4595 /* Student.m in Sources */,
 				A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */,
@@ -422,6 +438,16 @@
 				A405A7BC18F330F3003F4595 /* es */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A409DD521915A4520062F955 /* HeaderView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A409DD511915A4520062F955 /* Base */,
+				A409DD541915A4740062F955 /* en */,
+				A409DD561915A47B0062F955 /* es */,
+			);
+			name = HeaderView.xib;
 			sourceTree = "<group>";
 		};
 		A4FFF5C718F2EC7200E50485 /* InfoPlist.strings */ = {

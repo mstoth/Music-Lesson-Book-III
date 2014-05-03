@@ -12,6 +12,7 @@
 #import "MLB3AppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "MLB3RepertoireTableViewController.h"
 #import "Photo.h"
 
 @interface MLB3DetailViewController : UIViewController <UISplitViewControllerDelegate, UITableViewDataSource, UITableViewDelegate,ABPeoplePickerNavigationControllerDelegate,ABPersonViewControllerDelegate, ABNewPersonViewControllerDelegate, ABUnknownPersonViewControllerDelegate, UINavigationControllerDelegate> {
@@ -23,7 +24,7 @@
 - (IBAction)chooseStudent:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *addPieceButton;
 - (IBAction)addPiece:(id)sender;
-
+- (IBAction)showRepertoire:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *auxView;
 @property (nonatomic, assign) ABAddressBookRef addressBook; 
 @property (weak, nonatomic) IBOutlet UIButton *editStudentButton;

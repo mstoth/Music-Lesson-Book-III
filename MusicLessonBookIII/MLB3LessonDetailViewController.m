@@ -190,6 +190,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    metronomeOn = NO;
     MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     context = delegate.managedObjectContext;
     
@@ -278,4 +279,97 @@
     }
 }
 
-@end
+
+#pragma mark -
+#pragma mark Metronome routines
+
+- (IBAction)toggleMetronome:(id)sender {
+    if (!metronomeOn) {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSError *error = nil;
+        
+        NSURL *tickURL = [NSURL fileURLWithPath:[mainBundle pathForResource:@"tick" ofType:@"caf"]];
+        
+        self.tickPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:tickURL error:&error];
+        if (error) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Audio Error" message:@"Error Initializing Audio" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+        }
+        if (!self.tickPlayer) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Can not initialize audio player." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+            NSLog(@"no tickPlayer: %@", [error localizedDescription]);
+            return;
+        }
+        
+        metronomeOn = true;
+        [self.metronomeButton setTitle:@"Off" forState:UIControlStateNormal];
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
+        myThread = [[NSThread alloc] initWithTarget:self
+                                           selector:@selector(startDriverTimer:)
+                                             object:nil];
+        
+        [myThread start];  // Actually create the thread
+    } else {
+        metronomeOn = false;
+        [myThread cancel];
+        myThread = nil;
+        [self.metronomeButton setTitle:@"Metronome" forState:UIControlStateNormal];
+        [UIApplication sharedApplication].idleTimerDisabled = NO;
+        // nothing to do
+    }
+}
+
+
+// This method is invoked from the driver thread
+- (void)startDriverTimer:(id)sender {
+    //NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    // Give the sound thread high priority to keep the timing steady.
+    [NSThread setThreadPriority:1.0];
+    BOOL continuePlaying = YES;
+    
+    while (continuePlaying) {  // Loop until cancelled.
+        // An autorelease pool to prevent the build-up of temporary objects.
+        //NSAutoreleasePool *loopPool = [[NSAutoreleasePool alloc] init];
+        
+        [self playSound];
+        //NSLog(@"duration=%f",self.duration);
+        NSDate *curtainTime = [[NSDate alloc] initWithTimeIntervalSinceNow:duration];
+        NSDate *currentTime = [[NSDate alloc] init];
+        
+        // Wake up periodically to see if we've been cancelled.
+        while (continuePlaying && ([currentTime compare:curtainTime] != NSOrderedDescending)) {
+            [NSThread sleepForTimeInterval:0.01];
+            currentTime = [[NSDate alloc] init];
+            if (metronomeOn == false)
+                continuePlaying = NO;
+        }
+    }
+}
+
+- (void)playSound {
+    [self.tickPlayer play];
+}
+
+- (void)setBpm:(NSUInteger)bpm {
+    if (bpm >= kMaxBPM) {
+        bpm = kMaxBPM;
+    } else if (bpm <= kMinBPM) {
+        bpm = kMinBPM;
+    }
+    duration = (60.0 / bpm);
+    self.metronomeTextField.text = [NSString stringWithFormat:@"%d",bpm];
+}
+
+- (void) metronomeChanged:(id)sender {
+    NSUInteger t;
+    t=[self.metronomeTextField.text intValue];
+    [self setBpm:t];
+}
+
+- (NSUInteger)bpm {
+    return lrint(ceil(60.0 / (duration)));
+}
+
+    @end
