@@ -35,5 +35,6 @@
 @property (strong, nonatomic) Lesson *lesson;
 @property (weak, nonatomic) Lesson *lastLesson;
 @property (nonatomic, retain) UINavigationController *navController;
+- (IBAction)jumpToTempo:(id)sender;
 - (void) addPieceWithNavigationalController:(UINavigationController *)controller;
 @end

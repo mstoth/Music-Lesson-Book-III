@@ -328,7 +328,11 @@
     
 }
 
-
+- (IBAction)showSummary:(id)sender {
+    MLB3SummaryViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"Summary"];
+    [vc setStudent:self.student];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 - (IBAction)addPiece:(id)sender {
     
     [lessonDetailController addPieceWithNavigationalController:self.navigationController];

@@ -21,4 +21,11 @@
 - (IBAction)removeKeyboard:(id)sender;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *gestureRecognizer;
 @property (weak, nonatomic) IBOutlet UITextView *noteTextView;
+- (IBAction)toggleGreen:(id)sender;
+- (IBAction)toggleGold:(id)sender;
+- (IBAction)toggleRed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *goldStar;
+@property (weak, nonatomic) IBOutlet UIButton *redStar;
+@property (weak, nonatomic) IBOutlet UIButton *greenStar;
+
 @end

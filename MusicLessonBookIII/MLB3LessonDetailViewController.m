@@ -12,6 +12,8 @@
 #import "MLB3PieceDetailViewController.h"
 
 @interface MLB3LessonDetailViewController ()
+- (IBAction)bigStep:(id)sender;
+@property (weak, nonatomic) IBOutlet UIStepper *bigStepper;
 
 @end
 
@@ -34,8 +36,18 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.metronomeButton setTitle:@"On" forState:UIControlStateNormal];
+    metronomeOn = NO;
+
     self.pieces = nil;
     [self.pieceTableView reloadData];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (myThread) {
+        [myThread cancel];
+    }
+    metronomeOn = NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,6 +114,30 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PieceCell"];
     
     Piece *p = [self.pieces objectAtIndex:[indexPath row]];
+    for (Note *n in self.lesson.notes) {
+        if ([n.piece isEqual:p]) {
+            switch ([n.rating intValue]) {
+                case 0:
+                    [cell.imageView setImage:[UIImage imageNamed:@"outlinestar.png"]];
+                    break;
+                case 1:
+                    [cell.imageView setImage:[UIImage imageNamed:@"greenstar.png"]];
+                    break;
+                case 2:
+                case 3:
+                    [cell.imageView setImage:[UIImage imageNamed:@"redstar.png"]];
+                    break;
+                case 4:
+                    [cell.imageView setImage:[UIImage imageNamed:@"goldstar.png"]];
+                    break;
+                    
+                default:
+                    [cell.imageView setImage:[UIImage imageNamed:@"goldstar.png"]];
+
+                    break;
+            }
+        }
+    }
     
     if (p.title) {
         cell.textLabel.text = p.title;
@@ -143,6 +179,29 @@
     return note;
 }
 
+- (IBAction)jumpToTempo:(id)sender {
+    UISegmentedControl *sc = sender;
+    switch ([sc selectedSegmentIndex]) {
+        case 0:
+            [self setBpm:60];
+            break;
+        case 1:
+            [self setBpm:80];
+            break;
+        case 2:
+            [self setBpm:100];
+            break;
+        case 3:
+            [self setBpm:120];
+            break;
+        case 4:
+            [self setBpm:140];
+            break;
+        default:
+            [self setBpm:60];
+            break;
+    }
+}
 - (void)addPieceWithNavigationalController:(UINavigationController *)controller {
     Piece *newPiece = [[MLB3Store sharedStore] createPiece];
     [self.lesson addPiecesObject:newPiece];
@@ -191,6 +250,9 @@
 {
     [super viewDidLoad];
     metronomeOn = NO;
+    [self setBpm:60];
+    self.bigStepper.value = 60.0;
+    
     MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     context = delegate.managedObjectContext;
     
@@ -208,6 +270,12 @@
     for (Piece *p in self.lastLesson.pieces) {
         [self.lesson addPiecesObject:p];
         Note *newNote = [[MLB3Store sharedStore] createNote];
+        NSArray *notesFromLastLesson = [self.lastLesson.notes allObjects];
+        for (Note *n in notesFromLastLesson) {
+            if ([n.piece isEqual:p]) {
+                newNote.rating = n.rating;
+            }
+        }
         newNote.piece = p;
         [self.lesson addNotesObject:newNote];
     }
@@ -314,7 +382,7 @@
         metronomeOn = false;
         [myThread cancel];
         myThread = nil;
-        [self.metronomeButton setTitle:@"Metronome" forState:UIControlStateNormal];
+        [self.metronomeButton setTitle:@"On" forState:UIControlStateNormal];
         [UIApplication sharedApplication].idleTimerDisabled = NO;
         // nothing to do
     }
@@ -358,9 +426,12 @@
     } else if (bpm <= kMinBPM) {
         bpm = kMinBPM;
     }
+    self.bigStepper.value = bpm;
+    
     duration = (60.0 / bpm);
     self.metronomeTextField.text = [NSString stringWithFormat:@"%d",bpm];
 }
+
 
 - (void) metronomeChanged:(id)sender {
     NSUInteger t;
@@ -372,4 +443,8 @@
     return lrint(ceil(60.0 / (duration)));
 }
 
+- (IBAction)bigStep:(id)sender {
+    self.metronomeTextField.text = [NSString stringWithFormat:@"%.0f",self.bigStepper.value];
+    [self setBpm:self.bigStepper.value];
+}
     @end

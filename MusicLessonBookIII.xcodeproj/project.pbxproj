@@ -18,7 +18,6 @@
 		A405A7D418F346EE003F4595 /* MLB3NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7CA18F346EE003F4595 /* MLB3NoteViewController.m */; };
 		A405A7D518F346EE003F4595 /* MLB3PieceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */; };
 		A405A7DE18F34B13003F4595 /* Lesson.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7DD18F34B13003F4595 /* Lesson.m */; };
-		A405A7E118F34B14003F4595 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E018F34B14003F4595 /* Note.m */; };
 		A405A7E718F34B14003F4595 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E618F34B14003F4595 /* Piece.m */; };
 		A405A7EA18F34B14003F4595 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E918F34B14003F4595 /* Photo.m */; };
 		A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EC18F34B57003F4595 /* MLB3Store.m */; };
@@ -28,6 +27,19 @@
 		A409DD4B1914692F0062F955 /* MLB3RepertoireTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */; };
 		A409DD4D191474490062F955 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A409DD4C191474490062F955 /* AVFoundation.framework */; };
 		A409DD501915A4520062F955 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A409DD521915A4520062F955 /* HeaderView.xib */; };
+		A409DD591915A7E90062F955 /* MLB3SummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD581915A7E90062F955 /* MLB3SummaryViewController.m */; };
+		A409DD5B1916D2870062F955 /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = A409DD5A1916D2870062F955 /* tick.caf */; };
+		A409DD5C1916D2870062F955 /* tick.caf in Resources */ = {isa = PBXBuildFile; fileRef = A409DD5A1916D2870062F955 /* tick.caf */; };
+		A409DD5E1916E4470062F955 /* greenstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD5D1916E4470062F955 /* greenstar.png */; };
+		A409DD5F1916E4470062F955 /* greenstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD5D1916E4470062F955 /* greenstar.png */; };
+		A409DD611916E6E10062F955 /* goldstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD601916E6E10062F955 /* goldstar.png */; };
+		A409DD621916E6E10062F955 /* goldstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD601916E6E10062F955 /* goldstar.png */; };
+		A409DD641916E6EE0062F955 /* redstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD631916E6EE0062F955 /* redstar.png */; };
+		A409DD651916E6EE0062F955 /* redstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD631916E6EE0062F955 /* redstar.png */; };
+		A409DD671916E8370062F955 /* outlinestar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD661916E8370062F955 /* outlinestar.png */; };
+		A409DD681916E8370062F955 /* outlinestar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD661916E8370062F955 /* outlinestar.png */; };
+		A409DD6B1916EE6A0062F955 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6A1916EE6A0062F955 /* Note.m */; };
+		A409DD6C1916EE6A0062F955 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6A1916EE6A0062F955 /* Note.m */; };
 		A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B119009C2600747AD6 /* DBChooser.bundle */; };
 		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
@@ -87,8 +99,6 @@
 		A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceDetailViewController.m; sourceTree = "<group>"; };
 		A405A7DC18F34B13003F4595 /* Lesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson.h; sourceTree = "<group>"; };
 		A405A7DD18F34B13003F4595 /* Lesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesson.m; sourceTree = "<group>"; };
-		A405A7DF18F34B14003F4595 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		A405A7E018F34B14003F4595 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		A405A7E518F34B14003F4595 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
 		A405A7E618F34B14003F4595 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
 		A405A7E818F34B14003F4595 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
@@ -106,6 +116,15 @@
 		A409DD511915A4520062F955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HeaderView.xib; sourceTree = "<group>"; };
 		A409DD541915A4740062F955 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HeaderView.strings; sourceTree = "<group>"; };
 		A409DD561915A47B0062F955 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HeaderView.strings; sourceTree = "<group>"; };
+		A409DD571915A7E90062F955 /* MLB3SummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3SummaryViewController.h; sourceTree = "<group>"; };
+		A409DD581915A7E90062F955 /* MLB3SummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3SummaryViewController.m; sourceTree = "<group>"; };
+		A409DD5A1916D2870062F955 /* tick.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.caf; sourceTree = "<group>"; };
+		A409DD5D1916E4470062F955 /* greenstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenstar.png; sourceTree = "<group>"; };
+		A409DD601916E6E10062F955 /* goldstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldstar.png; sourceTree = "<group>"; };
+		A409DD631916E6EE0062F955 /* redstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstar.png; sourceTree = "<group>"; };
+		A409DD661916E8370062F955 /* outlinestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outlinestar.png; sourceTree = "<group>"; };
+		A409DD691916EE6A0062F955 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		A409DD6A1916EE6A0062F955 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		A42279B119009C2600747AD6 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
 		A42279B31900B02300747AD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PiecesChannel.h; sourceTree = "<group>"; };
@@ -200,10 +219,16 @@
 		A4FFF5C418F2EC7200E50485 /* MusicLessonBookIII */ = {
 			isa = PBXGroup;
 			children = (
+				A409DD5A1916D2870062F955 /* tick.caf */,
+				A409DD601916E6E10062F955 /* goldstar.png */,
+				A409DD631916E6EE0062F955 /* redstar.png */,
+				A409DD5D1916E4470062F955 /* greenstar.png */,
+				A409DD661916E8370062F955 /* outlinestar.png */,
 				A4FFF5CD18F2EC7200E50485 /* MLB3AppDelegate.h */,
 				A4FFF5CE18F2EC7200E50485 /* MLB3AppDelegate.m */,
 				A405A7BB18F330C5003F4595 /* Localizable.strings */,
-				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
+				A409DD571915A7E90062F955 /* MLB3SummaryViewController.h */,
+				A409DD581915A7E90062F955 /* MLB3SummaryViewController.m */,
 				A409DD491914692F0062F955 /* MLB3RepertoireTableViewController.h */,
 				A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */,
 				A409DD521915A4520062F955 /* HeaderView.xib */,
@@ -230,6 +255,7 @@
 				A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */,
 				A405A7EB18F34B57003F4595 /* MLB3Store.h */,
 				A405A7EC18F34B57003F4595 /* MLB3Store.m */,
+				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
 				A42279B81901EA5D00747AD6 /* MLB3PieceChannel.h */,
 				A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */,
 				A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */,
@@ -241,10 +267,10 @@
 				A405A7E918F34B14003F4595 /* Photo.m */,
 				A405A7E518F34B14003F4595 /* Piece.h */,
 				A405A7E618F34B14003F4595 /* Piece.m */,
-				A405A7DF18F34B14003F4595 /* Note.h */,
-				A405A7E018F34B14003F4595 /* Note.m */,
 				A405A7DD18F34B13003F4595 /* Lesson.m */,
 				A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */,
+				A409DD691916EE6A0062F955 /* Note.h */,
+				A409DD6A1916EE6A0062F955 /* Note.m */,
 				A405A7EE18F34BBD003F4595 /* Student.h */,
 				A405A7EF18F34BBD003F4595 /* Student.m */,
 				A42279B119009C2600747AD6 /* DBChooser.bundle */,
@@ -363,13 +389,18 @@
 				A405A7B918F330C5003F4595 /* Localizable.strings in Resources */,
 				A409DD501915A4520062F955 /* HeaderView.xib in Resources */,
 				A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */,
+				A409DD5B1916D2870062F955 /* tick.caf in Resources */,
 				A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */,
 				A405A7D018F346EE003F4595 /* MLB3EditLessonViewController.strings in Resources */,
 				A405A7CE18F346EE003F4595 /* MLB3EditStudentViewController.xib in Resources */,
 				A4FFF5E018F2EC7200E50485 /* Images.xcassets in Resources */,
+				A409DD611916E6E10062F955 /* goldstar.png in Resources */,
 				A4FFF5D218F2EC7200E50485 /* Main_iPhone.storyboard in Resources */,
 				A42279B41900B02300747AD6 /* Settings.bundle in Resources */,
+				A409DD641916E6EE0062F955 /* redstar.png in Resources */,
 				A4FFF5C918F2EC7200E50485 /* InfoPlist.strings in Resources */,
+				A409DD671916E8370062F955 /* outlinestar.png in Resources */,
+				A409DD5E1916E4470062F955 /* greenstar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +408,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A409DD651916E6EE0062F955 /* redstar.png in Resources */,
 				A4FFF5F218F2EC7200E50485 /* InfoPlist.strings in Resources */,
+				A409DD5C1916D2870062F955 /* tick.caf in Resources */,
+				A409DD5F1916E4470062F955 /* greenstar.png in Resources */,
+				A409DD681916E8370062F955 /* outlinestar.png in Resources */,
+				A409DD621916E6E10062F955 /* goldstar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +432,6 @@
 				A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */,
 				A405A7D218F346EE003F4595 /* MLB3LessonTableViewController.m in Sources */,
 				A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */,
-				A405A7E118F34B14003F4595 /* Note.m in Sources */,
 				A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */,
 				A409DD481913DF550062F955 /* MLB3StudentTableViewCell.m in Sources */,
 				A405A7D318F346EE003F4595 /* MLB3LessonDetailViewController.m in Sources */,
@@ -407,8 +442,10 @@
 				A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */,
 				A405A7EA18F34B14003F4595 /* Photo.m in Sources */,
 				A405A7E718F34B14003F4595 /* Piece.m in Sources */,
+				A409DD591915A7E90062F955 /* MLB3SummaryViewController.m in Sources */,
 				A4FFF5CB18F2EC7200E50485 /* main.m in Sources */,
 				A405A7D118F346EE003F4595 /* MLB3DetailViewController.m in Sources */,
+				A409DD6B1916EE6A0062F955 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4FFF5F418F2EC7300E50485 /* MusicLessonBookIIITests.m in Sources */,
+				A409DD6C1916EE6A0062F955 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +559,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -554,7 +592,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

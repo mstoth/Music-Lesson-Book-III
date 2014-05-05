@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Lesson" representedClassName="Lesson" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="lesson" inverseEntity="Note" syncable="YES"/>
@@ -8,6 +8,7 @@
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="lesson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lesson" inverseName="notes" inverseEntity="Lesson" syncable="YES"/>
         <relationship name="piece" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Piece" inverseName="note" inverseEntity="Piece" syncable="YES"/>
@@ -39,9 +40,9 @@
     </entity>
     <elements>
         <element name="Lesson" positionX="556" positionY="234" width="128" height="103"/>
-        <element name="Student" positionX="171" positionY="66" width="128" height="163"/>
-        <element name="Note" positionX="108" positionY="266" width="128" height="103"/>
-        <element name="Piece" positionX="295" positionY="407" width="128" height="133"/>
+        <element name="Note" positionX="108" positionY="266" width="128" height="120"/>
         <element name="Photo" positionX="367" positionY="63" width="128" height="73"/>
+        <element name="Piece" positionX="295" positionY="407" width="128" height="133"/>
+        <element name="Student" positionX="171" positionY="66" width="128" height="163"/>
     </elements>
 </model>

@@ -45,11 +45,21 @@
     [self.gestureRecognizer setDirection:UISwipeGestureRecognizerDirectionDown];
     [self.gestureRecognizer setDelegate:self];
     self.noteTextView.text = self.note.body;
+    if ([self.note.rating intValue] & 1) {
+        [self.greenStar setImage:[UIImage imageNamed:@"greenstar.png"] forState:UIControlStateNormal];
+    }
+    if ([self.note.rating intValue] & 2) {
+        [self.redStar setImage:[UIImage imageNamed:@"redstar.png"] forState:UIControlStateNormal];
+    }
+    if ([self.note.rating intValue] & 4) {
+        [self.goldStar setImage:[UIImage imageNamed:@"goldstar.png"] forState:UIControlStateNormal];
+    }
     if (self.lastWeekNote) {
         self.lastLessonTextView.text = self.lastWeekNote.body;
     } else {
         self.lastLessonTextView.text = @"No Prior Lesson";
     }
+    
     self.titleLabel.text = self.titleString;
 }
 
@@ -69,4 +79,61 @@
 - (IBAction)removeKeyboard:(id)sender {
     [self.view endEditing:YES];
 }
+
+
+- (IBAction)toggleGreen:(id)sender {
+    UIButton *greenButton = sender;
+    int irating = [self.note.rating intValue];
+    irating = irating ^ 1;
+    self.note.rating = [NSNumber numberWithInt:irating];
+    switch (irating & 1) {
+        case 0:
+            [greenButton setImage:[UIImage imageNamed:@"outlinestar.png"] forState:UIControlStateNormal];
+            break;
+        case 1:
+            [greenButton setImage:[UIImage imageNamed:@"greenstar.png"] forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)toggleGold:(id)sender {
+    UIButton *goldButton = sender;
+    int irating = [self.note.rating intValue];
+    irating = irating ^ 4;
+    self.note.rating = [NSNumber numberWithInt:irating];
+    switch (irating & 4) {
+        case 0:
+            [goldButton setImage:[UIImage imageNamed:@"outlinestar.png"] forState:UIControlStateNormal];
+            break;
+        case 4:
+            [goldButton setImage:[UIImage imageNamed:@"goldstar.png"] forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+
+}
+
+- (IBAction)toggleRed:(id)sender {
+    UIButton *redButton = sender;
+    int irating = [self.note.rating intValue];
+    irating = irating ^ 2;
+    self.note.rating = [NSNumber numberWithInt:irating];
+    switch (irating & 2) {
+        case 0:
+            [redButton setImage:[UIImage imageNamed:@"outlinestar.png"] forState:UIControlStateNormal];
+            break;
+        case 2:
+            [redButton setImage:[UIImage imageNamed:@"redstar.png"] forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+
 @end

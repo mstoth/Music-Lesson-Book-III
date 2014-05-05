@@ -54,7 +54,8 @@
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:NSLocalizedString(@"New Student", @"New Student") forKey:@"name"];
-    
+    [newManagedObject setValue:NSLocalizedString(@"No Category", @"No Category") forKeyPath:@"category"];
+    [newManagedObject setValue:NSLocalizedString(@"No Phone", @"No Phone") forKeyPath:@"phone"];
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
@@ -63,6 +64,8 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    [self.fetchedResultsController performFetch:&error];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table View

@@ -122,6 +122,16 @@
                                     <action selector="showRepertoire:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="2KA-XI-2ta"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqq-0y-hws">
+                                <rect key="frame" x="215" y="249" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Summary">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSummary:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="gT5-aq-Uff"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -180,7 +190,45 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjl-Hm-WQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="824"/>
+            <point key="canvasLocation" x="920" y="772"/>
+        </scene>
+        <!--Summary View Controller-->
+        <scene sceneID="LH0-8u-bw0">
+            <objects>
+                <viewController storyboardIdentifier="Summary" id="gYJ-Hr-aLR" customClass="MLB3SummaryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ccf-76-as6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hjv-MK-BDw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sjN-EV-0Ai">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sL-OJ-DaB">
+                                <rect key="frame" x="20" y="70" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lxS-ho-guS">
+                                <rect key="frame" x="20" y="99" width="280" height="335"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="headingLabel" destination="9sL-OJ-DaB" id="CSv-MZ-Kk0"/>
+                        <outlet property="reportTextView" destination="lxS-ho-guS" id="s24-qV-WgG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xTm-gN-pkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1373" y="772"/>
         </scene>
         <!--Edit Lesson View Controller - Edit Lesson-->
         <scene sceneID="6XB-lE-3Vk">
@@ -363,11 +411,39 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minimumValue="40" maximumValue="190" translatesAutoresizingMaskIntoConstraints="NO" id="W2Y-AP-eWR">
+                                <rect key="frame" x="180" y="179" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="bigStep:" destination="tIC-ca-SzI" eventType="valueChanged" id="cU6-4A-7io"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Press and hold to change tempo" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="154" translatesAutoresizingMaskIntoConstraints="NO" id="WSC-X4-Rjj">
+                                <rect key="frame" x="20" y="173" width="154" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e3W-Gn-GNI">
+                                <rect key="frame" x="20" y="226" width="254" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="60"/>
+                                    <segment title="80"/>
+                                    <segment title="100"/>
+                                    <segment title="120"/>
+                                    <segment title="140"/>
+                                </segments>
+                                <connections>
+                                    <action selector="jumpToTempo:" destination="tIC-ca-SzI" eventType="valueChanged" id="CtM-aA-90A"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Xq-C6-seE"/>
                     <connections>
+                        <outlet property="bigStepper" destination="W2Y-AP-eWR" id="Oae-FZ-hZK"/>
                         <outlet property="metronomeButton" destination="JFF-nI-2pY" id="0DP-rh-rBP"/>
                         <outlet property="metronomeTextField" destination="OAc-pJ-Zzs" id="W36-76-Mat"/>
                         <outlet property="pieceTableView" destination="7s5-QD-HXr" id="aUN-R0-E2a"/>
@@ -518,13 +594,43 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQZ-og-vD4">
-                                <rect key="frame" x="143" y="233" width="34" height="30"/>
+                                <rect key="frame" x="212" y="233" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="save:" destination="HXq-8j-rD0" eventType="touchUpInside" id="g0e-Sn-hw9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axe-ZY-XM4">
+                                <rect key="frame" x="20" y="234" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="outlinestar.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleGreen:" destination="HXq-8j-rD0" eventType="touchUpInside" id="1Cq-GD-LAP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpy-s7-4AQ">
+                                <rect key="frame" x="96" y="233" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="outlinestar.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleGold:" destination="HXq-8j-rD0" eventType="touchUpInside" id="xIW-yF-lcE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QI4-U8-UYC">
+                                <rect key="frame" x="58" y="233" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="outlinestar.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleRed:" destination="HXq-8j-rD0" eventType="touchUpInside" id="gLy-I0-seq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -537,8 +643,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="V3B-iO-Rva"/>
                     <connections>
                         <outlet property="gestureRecognizer" destination="Fyu-HD-Xsj" id="2u2-4D-Y9z"/>
+                        <outlet property="goldStar" destination="gpy-s7-4AQ" id="LTI-vB-fd1"/>
+                        <outlet property="greenStar" destination="axe-ZY-XM4" id="yRP-k9-p3T"/>
                         <outlet property="lastLessonTextView" destination="NTI-QG-FUP" id="yax-r2-h4r"/>
                         <outlet property="noteTextView" destination="v41-D4-0dz" id="XAt-3J-1UG"/>
+                        <outlet property="redStar" destination="QI4-U8-UYC" id="nuf-s4-QDs"/>
                         <outlet property="titleLabel" destination="QJx-tn-fTW" id="uPq-bL-vmO"/>
                     </connections>
                 </viewController>
@@ -552,6 +661,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="2364" y="-293"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="outlinestar.png" width="30" height="29"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
