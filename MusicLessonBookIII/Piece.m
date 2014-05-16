@@ -16,6 +16,7 @@
 @dynamic composer;
 @dynamic difficulty;
 @dynamic genre;
+@dynamic path;
 @dynamic title;
 @dynamic lesson;
 @dynamic note;

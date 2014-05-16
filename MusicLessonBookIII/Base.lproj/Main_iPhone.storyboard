@@ -543,6 +543,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRh-wv-JhV">
+                                <rect key="frame" x="20" y="225" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewPDF:" destination="A6T-JZ-JJ9" eventType="touchUpInside" id="4cb-jw-Pc0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -553,6 +563,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="sourceSegmentedControl" destination="1Z5-Mr-EWX" id="50Q-sR-b2z"/>
                         <outlet property="tableView" destination="19c-hT-43e" id="gyZ-h9-6gf"/>
                         <outlet property="titleTextField" destination="NiZ-77-D9h" id="DY3-iy-iNM"/>
+                        <outlet property="viewButton" destination="NRh-wv-JhV" id="OnP-jT-vSF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ns-Sb-Osa" userLabel="First Responder" sceneMemberID="firstResponder"/>

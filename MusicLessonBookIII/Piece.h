@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * difficulty;
 @property (nonatomic, retain) NSString * genre;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * path;
 @property (nonatomic, retain) NSSet *lesson;
 @property (nonatomic, retain) NSSet *note;
 @end

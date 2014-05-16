@@ -38,6 +38,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    selectedPath = nil;
+    [self.viewButton setHidden:YES];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     MLB3Store *sharedStore = [MLB3Store sharedStore];
@@ -66,7 +68,7 @@
             self.difficultyTextField.text = self.piece.difficulty;
         }
     }
-    piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
+    //piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFilesReady:) name:@"DropBoxFilesDownloaded" object:nil];
     
@@ -84,11 +86,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
+    //piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFileLoaded:) name:@"DropBoxFileLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFilesReady:) name:@"DropBoxFilesDownloaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFilesFailed:) name:@"DropBoxFilesFailed" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFileFailed:) name:@"DropBoxFileFailed" object:nil];
     
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -115,6 +121,8 @@
     self.piece.composer = self.composerTextField.text;
     self.piece.genre = self.genreTextField.text;
     self.piece.difficulty = self.difficultyTextField.text;
+    self.piece.path = selectedPath;
+    
     [context save:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -130,7 +138,29 @@
 #pragma mark - TableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [piecesForTable count];
+    switch ([self.sourceSegmentedControl selectedSegmentIndex]) {
+        case 0:
+            return [[[MLB3Store sharedStore] allPiecesFromDatabase] count];
+            break;
+        case 1:
+            if ([[MLB3Store sharedStore] dropboxFiles] == nil) {
+                return 0;
+            } else {
+                return [[[MLB3Store sharedStore] dropboxFiles] count];
+            }
+            break;
+        case 2:
+            if ([[MLB3Store sharedStore] gtmPieces] == nil) {
+                return 0;
+            } else {
+                return [[[MLB3Store sharedStore] gtmPieces] count];
+            }
+            break;
+        default:
+            break;
+    }
+    return 0;
+    //return [piecesForTable count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -139,25 +169,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Piece *selectedPiece;
-    NSString *selectedTitle;
-    
+    //NSString *selectedTitle;
+    DBMetadata *md;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PieceCell"];
     
     switch (self.sourceSegmentedControl.selectedSegmentIndex) {
         case 0:
-            selectedPiece = [piecesForTable objectAtIndex:[indexPath row]];
+            selectedPiece = [[[MLB3Store sharedStore] allPiecesFromDatabase] objectAtIndex:[indexPath row]];
             cell.textLabel.text = selectedPiece.title;
             cell.detailTextLabel.text = selectedPiece.composer;
             return cell;
             break;
         case 1:
-            selectedTitle = [piecesForTable objectAtIndex:[indexPath row]];
-            cell.textLabel.text = selectedTitle;
+            md = [[[MLB3Store sharedStore] dropboxFiles] objectAtIndex:[indexPath row]];
+            cell.textLabel.text = [[md path] lastPathComponent];
+            cell.detailTextLabel.text = @"";
             return cell;
             break;
         case 2:
         {
-            MLB3PieceChannel *pc = [piecesForTable objectAtIndex:[indexPath row]];
+            MLB3PieceChannel *pc = [[[MLB3Store sharedStore] gtmPieces] objectAtIndex:[indexPath row]];
             cell.textLabel.text = [pc title];
             cell.detailTextLabel.text = [pc composer];
         }
@@ -173,8 +204,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[MLB3Store sharedStore] removePiece:[piecesForTable objectAtIndex:[indexPath row]]];
-        [piecesForTable removeObject:[piecesForTable objectAtIndex:[indexPath row]]];
+        [[MLB3Store sharedStore] removePiece:[[[MLB3Store sharedStore] allPiecesFromDatabase] objectAtIndex:[indexPath row]]];
+//        [piecesForTable removeObject:[[MLB3Store sharedStore] allPiecesFromDatabase objectAtIndex:[indexPath row]]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -186,11 +217,17 @@
     
     switch (self.sourceSegmentedControl.selectedSegmentIndex) {
         case 0: { // local database
-            selectedPiece = [piecesForTable objectAtIndex:[indexPath row]];
+            selectedPiece = [[[MLB3Store sharedStore] allPiecesFromDatabase] objectAtIndex:[indexPath row]];
             self.titleTextField.text = selectedPiece.title;
             self.composerTextField.text = selectedPiece.composer;
             self.genreTextField.text = selectedPiece.genre;
             self.difficultyTextField.text = selectedPiece.difficulty ;
+            selectedPath = selectedPiece.path;
+            if (selectedPath) {
+                [self.viewButton setHidden:NO];
+            } else {
+                [self.viewButton setHidden:YES];
+            }
             [self.titleTextField setNeedsDisplay];
             [self.composerTextField setNeedsDisplay];
             [self.genreTextField setNeedsDisplay];
@@ -198,7 +235,9 @@
             break;
         }
         case 1: { // drop box
-            selectedTitle = [piecesForTable objectAtIndex:[indexPath row]];
+            DBMetadata *md = [[[MLB3Store sharedStore] dropboxFiles] objectAtIndex:[indexPath row]];
+            selectedPath = [md path];
+            selectedTitle = [[md path] lastPathComponent];
             NSArray *components = [selectedTitle componentsSeparatedByString:@"by" ];
             if ([components count]==1) {
                 NSArray *subComponents = [[components objectAtIndex:0] componentsSeparatedByString:@"."];
@@ -223,7 +262,7 @@
         }
         case  2:
         {
-            MLB3PieceChannel *pc = [piecesForTable objectAtIndex:[indexPath row]];
+            MLB3PieceChannel *pc = [[[MLB3Store sharedStore] gtmPieces] objectAtIndex:[indexPath row]];
             self.titleTextField.text = [pc title];
             self.composerTextField.text = [pc composer];
             self.genreTextField.text = [pc genre];
@@ -235,57 +274,131 @@
 }
 
 - (IBAction)changeSource:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0) {
-        // local database
-        piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
-        [self.tableView reloadData];
+    
+    switch ([self.sourceSegmentedControl selectedSegmentIndex]) {
+        case 0:
+            [self.tableView reloadData];
+            [self.viewButton setHidden:YES];
+            break;
+        case 1:
+            [[MLB3Store sharedStore] loadAllPiecesFromDropBox];
+            [self.tableView reloadData];
+            [self.viewButton setHidden:NO];
+            break;
+        case 2:
+            [self.tableView reloadData];
+            [self.viewButton setHidden:YES];
+            break;
+            
+        default:
+            break;
     }
-    if (sender.selectedSegmentIndex == 1) {
-        // drop box
-        [[MLB3Store sharedStore] loadAllPiecesFromDropBox];
-    }
-    if (sender.selectedSegmentIndex == 2) {
-        // good teaching music
-        piecesForTable = [[MLB3Store sharedStore] gtmPieces];
-        NSMutableArray *newPiecesForTable = [[NSMutableArray alloc] init];
-        for (MLB3PieceChannel *pc in piecesForTable) {
-            if ([[pc instrument] isEqual:@"Piano"]) {
-                [newPiecesForTable addObject:pc];
-            }
-        }
-        piecesForTable = newPiecesForTable;
+    
+//    if (sender.selectedSegmentIndex == 0) {
+//        // local database
+//        //piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
+//        [self.tableView reloadData];
+//    }
+//    if (sender.selectedSegmentIndex == 1) {
+//        // drop box
+//        //[[MLB3Store sharedStore] loadAllPiecesFromDropBox];
+//        
+//    }
+//    if (sender.selectedSegmentIndex == 2) {
+//        // good teaching music
+//        piecesForTable = [[MLB3Store sharedStore] gtmPieces];
+//        NSMutableArray *newPiecesForTable = [[NSMutableArray alloc] init];
+//        for (MLB3PieceChannel *pc in piecesForTable) {
+//            if ([[pc instrument] isEqual:@"Piano"]) {
+//                [newPiecesForTable addObject:pc];
+//            }
+//        }
+//        piecesForTable = newPiecesForTable;
+//
+//        [self.tableView reloadData];
+//    }
+}
 
-        [self.tableView reloadData];
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (IBAction)viewPDF:(id)sender {
+    NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+    if (ip == nil) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"No Piece Selected" message:@"Please select a piece." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+    } else {
+//        NSMutableArray *dbf = [[MLB3Store sharedStore] dropboxFiles];
+//        if (dbf == nil) {
+//            <#statements#>
+//        }
+//        DBMetadata *md = [dbf objectAtIndex:[ip row]];
+//        NSString *path = [md path];
+        [[MLB3Store sharedStore] viewPDF:selectedPath];
     }
 }
 
 - (void)dropBoxFilesReady:(NSNotification *)note {
-    piecesForTable = [[MLB3Store sharedStore] dropboxFiles];
+    //piecesForTable = [[MLB3Store sharedStore] dropboxFiles];
     [self.tableView reloadData];
 }
+
+- (void)dropBoxFileLoaded:(NSNotification *)note {
+    //piecesForTable = [[MLB3Store sharedStore] dropboxFiles];
+    NSString *localPath = [note.userInfo valueForKey:@"localPath"];
+    NSURL *localURL = [NSURL fileURLWithPath:localPath];
+    docController = [self setupControllerWithURL:localURL usingDelegate:self];
+    [docController presentPreviewAnimated:YES];
+}
+
+- (UIViewController *) documentInteractionControllerViewControllerForPreview: (UIDocumentInteractionController *) controller {
+    return self;
+}
+
+- (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller {
+    
+    NSError *error = nil;
+    BOOL removed;
+    NSString *destPath = [NSString stringWithFormat:@"%@/%@",[[self applicationDocumentsDirectory] path], [selectedPath lastPathComponent]];
+
+    removed = [[NSFileManager defaultManager] removeItemAtPath:destPath error:&error];
+    if (!removed) {
+        NSLog(@"Error removing file.");
+    }
+}
+
 
 - (void)dropBoxFilesFailed:(NSNotification *)note {
     [self.sourceSegmentedControl setSelectedSegmentIndex:0];
     [self changeSource:self.sourceSegmentedControl];
 }
 
+- (void)dropBoxFileFailed:(NSNotification *)note {
+    [self.sourceSegmentedControl setSelectedSegmentIndex:0];
+    [self changeSource:self.sourceSegmentedControl];
+}
+
 - (void)GTMFilesReady:(NSNotification *)note {
     if ([self.sourceSegmentedControl selectedSegmentIndex] == 2) {
-        piecesForTable = [[MLB3Store sharedStore] gtmPieces];
+        //piecesForTable = [[MLB3Store sharedStore] gtmPieces];
         
-        NSMutableArray *newPiecesForTable = [[NSMutableArray alloc] init];
-        for (MLB3PieceChannel *pc in piecesForTable) {
-            if ([[pc instrument] isEqual:@"Piano"]) {
-                [newPiecesForTable addObject:pc];
-            }
-        }
-        piecesForTable = [[newPiecesForTable sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            MLB3PieceChannel *pc1 = obj1;
-            MLB3PieceChannel *pc2 = obj2;
-            return [[pc1 title] compare:[pc2 title]];
-        }] mutableCopy];
+        //        NSMutableArray *newPiecesForTable = [[NSMutableArray alloc] init];
+        //        for (MLB3PieceChannel *pc in piecesForTable) {
+        //            if ([[pc instrument] isEqual:@"Piano"]) {
+        //                [newPiecesForTable addObject:pc];
+        //            }
+        //        }
+        //        piecesForTable = [[newPiecesForTable sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        //            MLB3PieceChannel *pc1 = obj1;
+        //            MLB3PieceChannel *pc2 = obj2;
+        //            return [[pc1 title] compare:[pc2 title]];
+        //        }] mutableCopy];
+        //    }
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -310,5 +423,24 @@
         [[MLB3Store sharedStore] setAutoCompletePieceChannel:nil];
     }
 }
+
+- (UIDocumentInteractionController *) setupControllerWithURL: (NSURL *) fileURL
+
+                                               usingDelegate: (id <UIDocumentInteractionControllerDelegate>) interactionDelegate {
+    
+    
+    
+    UIDocumentInteractionController *interactionController =
+    
+    [UIDocumentInteractionController interactionControllerWithURL: fileURL];
+    
+    interactionController.delegate = interactionDelegate;
+    
+    
+    
+    return interactionController;
+    
+}
+
 
 @end

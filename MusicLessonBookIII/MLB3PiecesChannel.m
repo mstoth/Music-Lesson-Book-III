@@ -19,6 +19,9 @@
     } else if ([elementName isEqual:@"genre"]) {
         currentString = [[NSMutableString alloc] init];
         [self setGenre:currentString];
+    } else if ([elementName isEqual:@"path"]) {
+        currentString = [[NSMutableString alloc] init];
+        [self setPath:currentString];
     } else if ([elementName isEqual:@"composer"]) {
         currentString = [[NSMutableString alloc] init];
         [self setComposer:currentString];

@@ -196,7 +196,7 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath
               from:(NSString*)srcPath metadata:(DBMetadata*)metadata {
     
-    //NSLog(@"File uploaded successfully to path: %@", metadata.path);
+    NSLog(@"File uploaded successfully to path: %@", metadata.path);
 }
 
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error {
@@ -221,10 +221,11 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
         for (DBMetadata *file in toRemove) {
             [self.dropboxFiles removeObject:file];
         }
-    }
-    [self.dropboxFiles removeAllObjects];
-    for (DBMetadata *file in [metadata contents]) {
-        [self.dropboxFiles addObject:file.filename];
+    } else {
+        [self.dropboxFiles removeAllObjects];
+        for (DBMetadata *md in [metadata contents]) {
+            [self.dropboxFiles addObject:md];
+        }
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DropBoxFilesDownloaded" object:self];
 }
@@ -240,18 +241,16 @@ loadMetadataFailedWithError:(NSError *)error {
 }
 
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)localPath {
-    //NSLog(@"File loaded into path: %@", localPath);
-    //    self.url = localPath;
-    //    self.titleTextView.text = [[localPath lastPathComponent] stringByDeletingPathExtension];
-    //    self.urlLabel.text = [localPath lastPathComponent];
-    //    self.composerTextView.text = @"";
-    //    self.difficultyTextField.text = @"";
-    //    self.genreTextView.text = @"";
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:localPath forKey:@"localPath"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DropBoxFileLoaded" object:self userInfo:userInfo];
+    NSLog(@"File Loaded, Local path is %@",localPath);
 }
 
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error {
-    //NSLog(@"There was an error loading the file - %@", error);
-    //self.url = @"";
+    
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Dropbox Error" message:[NSString stringWithFormat:@"There was an error in accessing your drop box file. The error is %@",[error.userInfo valueForKey:@"error"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [av show];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DropBoxFileFailed" object:self];
 }
 
 - (NSArray *)allLessonsForStudent:(Student *)student {
@@ -294,7 +293,7 @@ loadMetadataFailedWithError:(NSError *)error {
         for (id p in combinedPieces) {
             if ([p isKindOfClass:[NSString class]]) {
                 if ([prefix length] <= [p length]) {
-                    NSString *subString = [p substringWithRange:NSRangeFromString([NSString stringWithFormat:@"0 %d",[prefix length]])];
+                    NSString *subString = [p substringWithRange:NSRangeFromString([NSString stringWithFormat:@"0 %lu",(unsigned long)[prefix length]])];
                     if ([subString isEqualToString:prefix]) {
                         return [p substringFromIndex:[prefix length]];
                     }
@@ -313,7 +312,7 @@ loadMetadataFailedWithError:(NSError *)error {
             if ([p isKindOfClass:[Piece class]]) {
                 Piece *pt = p;
                 if ([prefix length] <= [pt.title length]) {
-                    NSString *subString = [pt.title substringWithRange:NSRangeFromString([NSString stringWithFormat:@"0 %d",[prefix length]])];
+                    NSString *subString = [pt.title substringWithRange:NSRangeFromString([NSString stringWithFormat:@"0 %lu",(unsigned long)[prefix length]])];
                     if ([subString isEqualToString:prefix]) {
                         _autoCompletePiece = pt;
                         return [pt.title substringFromIndex:[prefix length]];
@@ -325,5 +324,28 @@ loadMetadataFailedWithError:(NSError *)error {
     return @"";
 }
 
+- (IBAction)viewPDF:(NSString *)path {
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UIViewController *rootViewController = window.rootViewController;
+    
+    pdfPath = path;
+    
+    if (![[DBSession sharedSession] isLinked]) {
+        [[DBSession sharedSession] linkFromController:rootViewController];
+    }
+    
+    NSString *destPath = [NSString stringWithFormat:@"%@/%@",[[self applicationDocumentsDirectory] path], [path lastPathComponent]];
+    NSLog(@"%@",destPath);
+    [self.restClient loadFile:[NSString stringWithFormat:@"%@",path] atRev:nil
+                     intoPath:[NSString stringWithFormat:@"%@/%@",[[self applicationDocumentsDirectory] path], [path lastPathComponent]]];
+}
+
+
+// Returns the URL to the application's Documents directory.
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
 
 @end

@@ -16,6 +16,7 @@
 @property (nonatomic, weak) id parentParserDelegate;
 
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *composer;
 @property (nonatomic, strong) NSString *instrument;
 @property (nonatomic, strong) NSString *genre;

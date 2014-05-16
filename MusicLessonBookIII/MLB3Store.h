@@ -17,8 +17,9 @@
 #import "MLB3PieceChannel.h"
 #import "MLB3AutocompleteTextField.h"
 
-@interface MLB3Store : NSObject <DBRestClientDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate,HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate, UITextFieldDelegate > {
+@interface MLB3Store : NSObject <DBRestClientDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate,HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate, UITextFieldDelegate,UIDocumentInteractionControllerDelegate > {
     
+    NSString *pdfPath;
     NSMutableArray *allPieces;
     NSManagedObjectContext *context;
     NSMutableArray *allOfDropBoxFiles;
@@ -50,7 +51,7 @@
 - (void)autocompleteTextField:(MLB3AutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText;
 @property (strong, nonatomic) Piece *autoCompletePiece;
 @property (strong, nonatomic) MLB3PieceChannel *autoCompletePieceChannel;
-
+- (IBAction)viewPDF:(NSString *)path;
 @property (strong, nonatomic) NSMutableArray *dropboxFiles;
 @property (strong, nonatomic) NSMutableArray *gtmPieces;
 @property (strong, nonatomic) DBRestClient *restClient;

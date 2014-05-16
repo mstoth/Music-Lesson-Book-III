@@ -24,11 +24,11 @@
 
 
 
-- (int)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.lesson == nil) {
         return 0;
     }
@@ -429,7 +429,7 @@
     self.bigStepper.value = bpm;
     
     duration = (60.0 / bpm);
-    self.metronomeTextField.text = [NSString stringWithFormat:@"%d",bpm];
+    self.metronomeTextField.text = [NSString stringWithFormat:@"%lu",(unsigned long)bpm];
 }
 
 
@@ -447,4 +447,7 @@
     self.metronomeTextField.text = [NSString stringWithFormat:@"%.0f",self.bigStepper.value];
     [self setBpm:self.bigStepper.value];
 }
+
+
+
     @end
