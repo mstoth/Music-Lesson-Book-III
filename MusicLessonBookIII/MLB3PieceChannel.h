@@ -18,5 +18,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *composer;
 @property (nonatomic, strong) NSString *instrument;
+@property (nonatomic, strong) NSString *genre;
+@property (nonatomic, strong) NSString *difficulty;
 @property (nonatomic, strong) NSMutableArray *pieces;
 @end

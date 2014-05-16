@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A400E135192599A500A90E3D /* MLB3AutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A400E134192599A500A90E3D /* MLB3AutocompleteTextField.m */; };
 		A405A7B918F330C5003F4595 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A405A7BB18F330C5003F4595 /* Localizable.strings */; };
 		A405A7CD18F346EE003F4595 /* MLB3EditStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7BE18F346EE003F4595 /* MLB3EditStudentViewController.m */; };
 		A405A7CE18F346EE003F4595 /* MLB3EditStudentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A405A7BF18F346EE003F4595 /* MLB3EditStudentViewController.xib */; };
@@ -18,7 +19,6 @@
 		A405A7D418F346EE003F4595 /* MLB3NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7CA18F346EE003F4595 /* MLB3NoteViewController.m */; };
 		A405A7D518F346EE003F4595 /* MLB3PieceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */; };
 		A405A7DE18F34B13003F4595 /* Lesson.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7DD18F34B13003F4595 /* Lesson.m */; };
-		A405A7E718F34B14003F4595 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E618F34B14003F4595 /* Piece.m */; };
 		A405A7EA18F34B14003F4595 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E918F34B14003F4595 /* Photo.m */; };
 		A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EC18F34B57003F4595 /* MLB3Store.m */; };
 		A405A7F018F34BBD003F4595 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EF18F34BBD003F4595 /* Student.m */; };
@@ -40,6 +40,10 @@
 		A409DD681916E8370062F955 /* outlinestar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD661916E8370062F955 /* outlinestar.png */; };
 		A409DD6B1916EE6A0062F955 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6A1916EE6A0062F955 /* Note.m */; };
 		A409DD6C1916EE6A0062F955 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6A1916EE6A0062F955 /* Note.m */; };
+		A409DD6F19181B3B0062F955 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6E19181B3B0062F955 /* Piece.m */; };
+		A409DD7019181B3B0062F955 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6E19181B3B0062F955 /* Piece.m */; };
+		A41A26FA191CF8D30048F265 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A26F7191CF8D30048F265 /* HTAutocompleteTextField.m */; };
+		A41A26FB191CF8D30048F265 /* HTEmailAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A26F9191CF8D30048F265 /* HTEmailAutocompleteTextField.m */; };
 		A42279B219009C2600747AD6 /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B119009C2600747AD6 /* DBChooser.bundle */; };
 		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
@@ -75,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A400E133192599A400A90E3D /* MLB3AutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3AutocompleteTextField.h; sourceTree = "<group>"; };
+		A400E134192599A500A90E3D /* MLB3AutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3AutocompleteTextField.m; sourceTree = "<group>"; };
 		A405A7B518F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
 		A405A7B618F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main_iPad.strings; sourceTree = "<group>"; };
 		A405A7B718F33057003F4595 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -99,8 +105,6 @@
 		A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceDetailViewController.m; sourceTree = "<group>"; };
 		A405A7DC18F34B13003F4595 /* Lesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson.h; sourceTree = "<group>"; };
 		A405A7DD18F34B13003F4595 /* Lesson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesson.m; sourceTree = "<group>"; };
-		A405A7E518F34B14003F4595 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
-		A405A7E618F34B14003F4595 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
 		A405A7E818F34B14003F4595 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		A405A7E918F34B14003F4595 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		A405A7EB18F34B57003F4595 /* MLB3Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3Store.h; sourceTree = "<group>"; };
@@ -125,6 +129,12 @@
 		A409DD661916E8370062F955 /* outlinestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outlinestar.png; sourceTree = "<group>"; };
 		A409DD691916EE6A0062F955 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		A409DD6A1916EE6A0062F955 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		A409DD6D19181B3B0062F955 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
+		A409DD6E19181B3B0062F955 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
+		A41A26F6191CF8D30048F265 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
+		A41A26F7191CF8D30048F265 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAutocompleteTextField.m; sourceTree = "<group>"; };
+		A41A26F8191CF8D30048F265 /* HTEmailAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEmailAutocompleteTextField.h; sourceTree = "<group>"; };
+		A41A26F9191CF8D30048F265 /* HTEmailAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEmailAutocompleteTextField.m; sourceTree = "<group>"; };
 		A42279B119009C2600747AD6 /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
 		A42279B31900B02300747AD6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PiecesChannel.h; sourceTree = "<group>"; };
@@ -220,6 +230,12 @@
 			isa = PBXGroup;
 			children = (
 				A409DD5A1916D2870062F955 /* tick.caf */,
+				A41A26F6191CF8D30048F265 /* HTAutocompleteTextField.h */,
+				A41A26F7191CF8D30048F265 /* HTAutocompleteTextField.m */,
+				A400E133192599A400A90E3D /* MLB3AutocompleteTextField.h */,
+				A400E134192599A500A90E3D /* MLB3AutocompleteTextField.m */,
+				A41A26F8191CF8D30048F265 /* HTEmailAutocompleteTextField.h */,
+				A41A26F9191CF8D30048F265 /* HTEmailAutocompleteTextField.m */,
 				A409DD601916E6E10062F955 /* goldstar.png */,
 				A409DD631916E6EE0062F955 /* redstar.png */,
 				A409DD5D1916E4470062F955 /* greenstar.png */,
@@ -232,6 +248,7 @@
 				A409DD491914692F0062F955 /* MLB3RepertoireTableViewController.h */,
 				A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */,
 				A409DD521915A4520062F955 /* HeaderView.xib */,
+				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
 				A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */,
 				A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */,
 				A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */,
@@ -255,7 +272,6 @@
 				A405A7CC18F346EE003F4595 /* MLB3PieceDetailViewController.m */,
 				A405A7EB18F34B57003F4595 /* MLB3Store.h */,
 				A405A7EC18F34B57003F4595 /* MLB3Store.m */,
-				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
 				A42279B81901EA5D00747AD6 /* MLB3PieceChannel.h */,
 				A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */,
 				A42279B519018D8500747AD6 /* MLB3PiecesChannel.h */,
@@ -265,10 +281,10 @@
 				A405A7DC18F34B13003F4595 /* Lesson.h */,
 				A405A7E818F34B14003F4595 /* Photo.h */,
 				A405A7E918F34B14003F4595 /* Photo.m */,
-				A405A7E518F34B14003F4595 /* Piece.h */,
-				A405A7E618F34B14003F4595 /* Piece.m */,
 				A405A7DD18F34B13003F4595 /* Lesson.m */,
 				A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */,
+				A409DD6D19181B3B0062F955 /* Piece.h */,
+				A409DD6E19181B3B0062F955 /* Piece.m */,
 				A409DD691916EE6A0062F955 /* Note.h */,
 				A409DD6A1916EE6A0062F955 /* Note.m */,
 				A405A7EE18F34BBD003F4595 /* Student.h */,
@@ -424,12 +440,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41A26FA191CF8D30048F265 /* HTAutocompleteTextField.m in Sources */,
+				A409DD6F19181B3B0062F955 /* Piece.m in Sources */,
 				A405A7CD18F346EE003F4595 /* MLB3EditStudentViewController.m in Sources */,
 				A409DD4B1914692F0062F955 /* MLB3RepertoireTableViewController.m in Sources */,
 				A405A7DE18F34B13003F4595 /* Lesson.m in Sources */,
 				A405A7F018F34BBD003F4595 /* Student.m in Sources */,
 				A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */,
+				A400E135192599A500A90E3D /* MLB3AutocompleteTextField.m in Sources */,
 				A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */,
+				A41A26FB191CF8D30048F265 /* HTEmailAutocompleteTextField.m in Sources */,
 				A405A7D218F346EE003F4595 /* MLB3LessonTableViewController.m in Sources */,
 				A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */,
 				A4FFF5DB18F2EC7200E50485 /* MLB3MasterViewController.m in Sources */,
@@ -441,7 +461,6 @@
 				A405A7CF18F346EE003F4595 /* MLB3EditLessonViewController.m in Sources */,
 				A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */,
 				A405A7EA18F34B14003F4595 /* Photo.m in Sources */,
-				A405A7E718F34B14003F4595 /* Piece.m in Sources */,
 				A409DD591915A7E90062F955 /* MLB3SummaryViewController.m in Sources */,
 				A4FFF5CB18F2EC7200E50485 /* main.m in Sources */,
 				A405A7D118F346EE003F4595 /* MLB3DetailViewController.m in Sources */,
@@ -453,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A409DD7019181B3B0062F955 /* Piece.m in Sources */,
 				A4FFF5F418F2EC7300E50485 /* MusicLessonBookIIITests.m in Sources */,
 				A409DD6C1916EE6A0062F955 /* Note.m in Sources */,
 			);

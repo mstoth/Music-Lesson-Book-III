@@ -15,8 +15,9 @@
 #import "Student.h"
 #import <DropboxSDK/DropboxSDK.h>
 #import "MLB3PieceChannel.h"
+#import "MLB3AutocompleteTextField.h"
 
-@interface MLB3Store : NSObject <DBRestClientDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate> {
+@interface MLB3Store : NSObject <DBRestClientDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate,HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate > {
     
     NSMutableArray *allPieces;
     NSManagedObjectContext *context;
@@ -40,6 +41,15 @@
 - (void)loadAllPiecesFromDropBox;
 
 - (NSArray *)allLessonsForStudent:(Student *)student;
+
+- (NSString*)textField:(HTAutocompleteTextField*)textField
+   completionForPrefix:(NSString*)prefix
+            ignoreCase:(BOOL)ignoreCase;
+
+- (void)autoCompleteTextFieldDidAutoComplete:(MLB3AutocompleteTextField *)autoCompleteField;
+- (void)autocompleteTextField:(MLB3AutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText;
+@property (strong, nonatomic) Piece *autoCompletePiece;
+@property (strong, nonatomic) MLB3PieceChannel *autoCompletePieceChannel;
 
 @property (strong, nonatomic) NSMutableArray *dropboxFiles;
 @property (strong, nonatomic) NSMutableArray *gtmPieces;

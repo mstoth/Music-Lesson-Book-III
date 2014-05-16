@@ -10,9 +10,10 @@
 #import "MLB3AppDelegate.h"
 #import "MLB3Store.h"
 #import "MLB3PiecesChannel.h"
+#import "MLB3AutocompleteTextField.h"
 
 @interface MLB3PieceDetailViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet MLB3AutocompleteTextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *composerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *genreTextField;
 @property (weak, nonatomic) IBOutlet UITextField *difficultyTextField;
@@ -22,6 +23,8 @@
 
 @implementation MLB3PieceDetailViewController
 
+
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     NSLog(@"%@ found a %@ element", self, elementName);
     if ([elementName isEqual:@"piece"]) {
@@ -30,15 +33,23 @@
         [parser setDelegate:channel];
     }
 }
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self.titleTextField setDelegate:self];
+    MLB3Store *sharedStore = [MLB3Store sharedStore];
+    [self.titleTextField setAutocompleteDataSource:sharedStore];
+    [self.titleTextField setAutoCompleteTextFieldDelegate:sharedStore];
+    //[self.titleTextField setClearsOnBeginEditing:YES];
+    [self.titleTextField setIgnoreCase:YES];
     [self.composerTextField setDelegate:self];
     [self.difficultyTextField setDelegate:self];
     [self.genreTextField setDelegate:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOtherTextFields) name:@"MLB3AutocompleteTextFieldCommitted" object:nil];
     
     if (self.piece) {
         if (self.piece.title) {
@@ -51,7 +62,7 @@
             self.genreTextField.text = self.piece.genre;
         }
         if (self.piece.difficulty) {
-            self.difficultyTextField.text = [self.piece.difficulty stringValue];
+            self.difficultyTextField.text = self.piece.difficulty;
         }
     }
     piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
@@ -105,7 +116,7 @@
     self.piece.title = self.titleTextField.text;
     self.piece.composer = self.composerTextField.text;
     self.piece.genre = self.genreTextField.text;
-    self.piece.difficulty = [NSNumber numberWithInt:[self.difficultyTextField.text intValue]];
+    self.piece.difficulty = self.difficultyTextField.text;
     [context save:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -176,19 +187,19 @@
     NSString *selectedTitle;
     
     switch (self.sourceSegmentedControl.selectedSegmentIndex) {
-        case 0: {
+        case 0: { // local database
             selectedPiece = [piecesForTable objectAtIndex:[indexPath row]];
             self.titleTextField.text = selectedPiece.title;
             self.composerTextField.text = selectedPiece.composer;
             self.genreTextField.text = selectedPiece.genre;
-            self.difficultyTextField.text = [selectedPiece.difficulty stringValue];
+            self.difficultyTextField.text = selectedPiece.difficulty ;
             [self.titleTextField setNeedsDisplay];
             [self.composerTextField setNeedsDisplay];
             [self.genreTextField setNeedsDisplay];
             [self.difficultyTextField setNeedsDisplay];
             break;
         }
-        case 1: {
+        case 1: { // drop box
             selectedTitle = [piecesForTable objectAtIndex:[indexPath row]];
             NSArray *components = [selectedTitle componentsSeparatedByString:@"by" ];
             if ([components count]==1) {
@@ -217,6 +228,8 @@
             MLB3PieceChannel *pc = [piecesForTable objectAtIndex:[indexPath row]];
             self.titleTextField.text = [pc title];
             self.composerTextField.text = [pc composer];
+            self.genreTextField.text = [pc genre];
+            self.difficultyTextField.text = [pc difficulty];
         }
         default:
             break;
@@ -272,5 +285,22 @@
     [self.tableView reloadData];
 }
 
+
+- (void)updateOtherTextFields {
+    if ([[MLB3Store sharedStore] autoCompletePiece] != nil) {
+        Piece *pt = [[MLB3Store sharedStore] autoCompletePiece];
+        self.composerTextField.text = pt.composer;
+        self.difficultyTextField.text = pt.difficulty;
+        self.genreTextField.text = pt.genre;
+        [[MLB3Store sharedStore] setAutoCompletePiece:nil];
+    }
+    if ([[MLB3Store sharedStore] autoCompletePieceChannel] != nil) {
+        MLB3PieceChannel *pt = [[MLB3Store sharedStore] autoCompletePieceChannel];
+        self.composerTextField.text = pt.composer;
+        self.difficultyTextField.text = pt.difficulty;
+        self.genreTextField.text = pt.genre;
+        [[MLB3Store sharedStore] setAutoCompletePieceChannel:nil];
+    }
+}
 
 @end

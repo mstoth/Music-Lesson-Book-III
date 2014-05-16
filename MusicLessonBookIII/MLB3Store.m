@@ -14,6 +14,8 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 
 @implementation MLB3Store
 @synthesize gtmPieces;
+@synthesize autoCompletePiece = _autoCompletePiece;
+@synthesize autoCompletePieceChannel = _autoCompletePieceChannel;
 
 + (MLB3Store *)sharedStore {
     static MLB3Store *sharedStore = nil;
@@ -29,6 +31,8 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
     NSError *error = nil;
     self = [super init];
     if (self) {
+        _autoCompletePiece = nil;
+        _autoCompletePieceChannel = nil;
         allPieces = [[NSMutableArray alloc] init];
         gtmPieces = [[NSMutableArray alloc] init];
         MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -253,4 +257,67 @@ loadMetadataFailedWithError:(NSError *)error {
     
 }
 
+- (void)autoCompleteTextFieldDidAutoComplete:(MLB3AutocompleteTextField *)autoCompleteField {
+    NSLog(@"In autoCompleteTextFieldDidAutoComplete, autoCompleteField is %@", autoCompleteField);
+}
+
+
+- (void)autocompleteTextField:(MLB3AutocompleteTextField *)autocompleteTextField didChangeAutocompleteText:(NSString *)autocompleteText {
+    NSLog(@"In autocompleteTextField, autocompleteText is %@",autocompleteText);
+}
+
+
+- (NSString*)textField:(MLB3AutocompleteTextField*)textField
+   completionForPrefix:(NSString*)prefix
+            ignoreCase:(BOOL)ignoreCase {
+    NSMutableArray *combinedPieces;
+    
+//    if ([textField.text isEqualToString:prefix]) {
+//        return @"";
+//    }
+    
+    if ([prefix length] == 0) {
+        return prefix;
+    }
+    
+    combinedPieces = [[NSMutableArray alloc] init];
+    
+    [combinedPieces addObjectsFromArray:allPieces];
+    [combinedPieces addObjectsFromArray:gtmPieces];
+    [combinedPieces addObjectsFromArray:allOfDropBoxFiles];
+    
+    if ([combinedPieces count] > 0) {
+        for (id p in combinedPieces) {
+            if ([p isKindOfClass:[NSString class]]) {
+                if ([prefix length] <= [p length]) {
+                    NSString *subString = [p substringWithRange:NSRangeFromString([NSString stringWithFormat:@"0 %d",[prefix length]])];
+                    if ([subString isEqualToString:prefix]) {
+                        return [p substringFromIndex:[prefix length]];
+                    }
+                }
+            }
+            if ([p isKindOfClass:[MLB3PieceChannel class]]) {
+                MLB3PieceChannel *pt = p;
+                if ([prefix length] <= [pt.title length]) {
+                    NSString *subString = [pt.title substringToIndex:[prefix length]];
+                    if ([subString isEqualToString:prefix]) {
+                        _autoCompletePieceChannel = pt;
+                        return [pt.title substringFromIndex:[prefix length]];
+                    }
+                }
+            }
+            if ([p isKindOfClass:[Piece class]]) {
+                Piece *pt = p;
+                if ([prefix length] <= [pt.title length]) {
+                    NSString *subString = [pt.title substringWithRange:NSRangeFromString([NSString stringWithFormat:@"0 %d",[prefix length]])];
+                    if ([subString isEqualToString:prefix]) {
+                        _autoCompletePiece = pt;
+                        return [pt.title substringFromIndex:[prefix length]];
+                    }
+                }
+            }
+        }
+    }
+    return @"";
+}
 @end

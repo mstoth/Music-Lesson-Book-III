@@ -9,7 +9,7 @@
 #import "MLB3PieceChannel.h"
 
 @implementation MLB3PieceChannel
-@synthesize pieces, composer, title, parentParserDelegate;
+@synthesize pieces, composer, title, genre, difficulty,  parentParserDelegate;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     if ([elementName isEqual:@"piece"]) {
@@ -20,6 +20,12 @@
     } else if ([elementName isEqual:@"composer"]) {
         currentString = [[NSMutableString alloc] init];
         [self setComposer:currentString];
+    } else if ([elementName isEqual:@"genre"]) {
+        currentString = [[NSMutableString alloc] init];
+        [self setGenre:currentString];
+    } else if ([elementName isEqual:@"difficulty"]) {
+        currentString = [[NSMutableString alloc] init];
+        [self setDifficulty:currentString];
     } else if ([elementName isEqual:@"instrument"]) {
         currentString = [[NSMutableString alloc] init];
         [self setInstrument:currentString];

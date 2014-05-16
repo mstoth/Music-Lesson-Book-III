@@ -19,7 +19,7 @@
     </entity>
     <entity name="Piece" representedClassName="Piece" syncable="YES">
         <attribute name="composer" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="difficulty" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="difficulty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="lesson" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lesson" inverseName="pieces" inverseEntity="Lesson" syncable="YES"/>
@@ -39,10 +39,10 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="Lesson" positionX="556" positionY="234" width="128" height="103"/>
+        <element name="Lesson" positionX="466" positionY="248" width="128" height="103"/>
         <element name="Note" positionX="108" positionY="266" width="128" height="120"/>
-        <element name="Photo" positionX="367" positionY="63" width="128" height="73"/>
-        <element name="Piece" positionX="295" positionY="407" width="128" height="133"/>
-        <element name="Student" positionX="171" positionY="66" width="128" height="163"/>
+        <element name="Photo" positionX="448" positionY="152" width="128" height="73"/>
+        <element name="Piece" positionX="295" positionY="378" width="128" height="133"/>
+        <element name="Student" positionX="205" positionY="63" width="128" height="163"/>
     </elements>
 </model>

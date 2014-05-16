@@ -9,13 +9,16 @@
 #import "MLB3PiecesChannel.h"
 
 @implementation MLB3PiecesChannel
-@synthesize pieces, title, composer, instrument, parentParserDelegate;
+@synthesize pieces, title, composer, instrument, genre, parentParserDelegate;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     NSLog(@"\t%@ found a %@ element", self, elementName);
     if ([elementName isEqual:@"title"]) {
         currentString = [[NSMutableString alloc] init];
         [self setTitle:currentString];
+    } else if ([elementName isEqual:@"genre"]) {
+        currentString = [[NSMutableString alloc] init];
+        [self setGenre:currentString];
     } else if ([elementName isEqual:@"composer"]) {
         currentString = [[NSMutableString alloc] init];
         [self setComposer:currentString];

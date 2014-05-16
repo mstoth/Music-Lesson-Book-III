@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Piece *piece;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sourceSegmentedControl;
+- (void) updateOtherTextFields;
 @end
