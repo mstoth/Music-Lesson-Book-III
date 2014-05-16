@@ -43,6 +43,7 @@
     MLB3Store *sharedStore = [MLB3Store sharedStore];
     [self.titleTextField setAutocompleteDataSource:sharedStore];
     [self.titleTextField setAutoCompleteTextFieldDelegate:sharedStore];
+    [self.titleTextField setDelegate:self];
     //[self.titleTextField setClearsOnBeginEditing:YES];
     [self.titleTextField setIgnoreCase:YES];
     [self.composerTextField setDelegate:self];
@@ -85,6 +86,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     piecesForTable = [[[MLB3Store sharedStore] allPiecesFromDatabase] mutableCopy];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFilesReady:) name:@"DropBoxFilesDownloaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropBoxFilesFailed:) name:@"DropBoxFilesFailed" object:nil];
     
 }
 - (void)didReceiveMemoryWarning
@@ -93,10 +95,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
 
 
 - (IBAction)save:(UIButton *)sender {
@@ -266,6 +264,11 @@
     [self.tableView reloadData];
 }
 
+- (void)dropBoxFilesFailed:(NSNotification *)note {
+    [self.sourceSegmentedControl setSelectedSegmentIndex:0];
+    [self changeSource:self.sourceSegmentedControl];
+}
+
 - (void)GTMFilesReady:(NSNotification *)note {
     if ([self.sourceSegmentedControl selectedSegmentIndex] == 2) {
         piecesForTable = [[MLB3Store sharedStore] gtmPieces];
@@ -285,6 +288,11 @@
     [self.tableView reloadData];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    [self updateOtherTextFields];
+    return YES;
+}
 
 - (void)updateOtherTextFields {
     if ([[MLB3Store sharedStore] autoCompletePiece] != nil) {

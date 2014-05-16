@@ -17,7 +17,7 @@
 #import "MLB3PieceChannel.h"
 #import "MLB3AutocompleteTextField.h"
 
-@interface MLB3Store : NSObject <DBRestClientDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate,HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate > {
+@interface MLB3Store : NSObject <DBRestClientDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate,HTAutocompleteDataSource, HTAutocompleteTextFieldDelegate, UITextFieldDelegate > {
     
     NSMutableArray *allPieces;
     NSManagedObjectContext *context;

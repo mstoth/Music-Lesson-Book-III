@@ -200,7 +200,7 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 }
 
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error {
-    //NSLog(@"File upload failed with error - %@", error);
+    NSLog(@"File upload failed with error - %@", error);
 }
 
 - (void)restClient:(DBRestClient *)client loadedMetadata:(DBMetadata *)metadata {
@@ -232,7 +232,11 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 - (void)restClient:(DBRestClient *)client
 loadMetadataFailedWithError:(NSError *)error {
     
-    // NSLog(@"Error loading metadata: %@", error);
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Dropbox Error" message:[NSString stringWithFormat:@"There was an error in accessing your drop box. The error is %@",[error.userInfo valueForKey:@"error"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [av show];
+    self.dropboxFiles = nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DropBoxFilesFailed" object:self];
+
 }
 
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)localPath {
@@ -320,4 +324,6 @@ loadMetadataFailedWithError:(NSError *)error {
     }
     return @"";
 }
+
+
 @end
