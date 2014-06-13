@@ -13,7 +13,7 @@
 
 @class MLB3PiecesChannel;
 
-@interface MLB3PieceDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSXMLParserDelegate, UITextFieldDelegate, UIDocumentInteractionControllerDelegate> {
+@interface MLB3PieceDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSXMLParserDelegate, UITextFieldDelegate, UIDocumentInteractionControllerDelegate, UIAlertViewDelegate> {
     //NSMutableArray *piecesForTable;
     MLB3PiecesChannel *channel;
     NSString *selectedPath;

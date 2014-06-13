@@ -273,6 +273,22 @@
     }
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            return;
+            break;
+        case 1:
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"MLB3DropboxPrefKey"];
+            [[MLB3Store sharedStore] initDropbox];
+            break;
+        case 2:
+            return;
+            break;
+        default:
+            break;
+    }
+}
 - (IBAction)changeSource:(UISegmentedControl *)sender {
     
     switch ([self.sourceSegmentedControl selectedSegmentIndex]) {
@@ -280,11 +296,22 @@
             [self.tableView reloadData];
             [self.viewButton setHidden:YES];
             break;
-        case 1:
-            [[MLB3Store sharedStore] loadAllPiecesFromDropBox];
-            [self.tableView reloadData];
-            [self.viewButton setHidden:NO];
+        case 1: {
+            BOOL db = [[NSUserDefaults standardUserDefaults] boolForKey:@"MLB3DropboxPrefKey"];
+            
+            
+            if (!db) {
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Dropbox is off" message:@"The Dropbox option is turned off. Do you want to turn it on?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes",@"No",nil];
+                [av show];
+                [self.sourceSegmentedControl setSelectedSegmentIndex:0];
+            } else {
+                [[MLB3Store sharedStore] initDropbox];
+                [[MLB3Store sharedStore] loadAllPiecesFromDropBox];
+                [self.tableView reloadData];
+                [self.viewButton setHidden:NO];
+            }
             break;
+        }
         case 2:
             [self.tableView reloadData];
             [self.viewButton setHidden:YES];

@@ -11,6 +11,7 @@
 #import "MLB3PieceChannel.h"
 
 NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
+NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
 
 @implementation MLB3Store
 @synthesize gtmPieces;
@@ -54,7 +55,13 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
         gtmPieces = [[NSMutableArray alloc] init];
         
         NSURLRequest *urlRequest;
-        NSURL *url = [NSURL URLWithString:@"http://secure-sierra-9006.herokuapp.com/pieces.xml"];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *instrument = [defaults objectForKey:MLB3InstrumentPrefKey];
+
+        NSString *urlString = [NSString stringWithFormat:@"http://secure-sierra-9006.herokuapp.com/pieces.xml?instrument=%@",instrument];
+        
+        NSURL *url = [NSURL URLWithString:urlString];
         urlRequest = [NSURLRequest requestWithURL:url];
         //connection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
         xmlData = [[NSMutableData alloc] init];
@@ -62,23 +69,29 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 
     }
     
-    DBSession* dbSession =
-    [[DBSession alloc]
-     initWithAppKey:@"mqrf94btlab7daa"
-     appSecret:@"bfsgvafe28kedjl"
-     root:kDBRootDropbox];// either kDBRootAppFolder or kDBRootDropbox;
-    [DBSession setSharedSession:dbSession];
-
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    UIViewController *rootViewController = window.rootViewController;
-    
-    if (![[DBSession sharedSession] isLinked]) {
-        [[DBSession sharedSession] linkFromController:rootViewController];
-    }
 
     return self;
 }
+- (void)initDropbox {
+    BOOL dropboxOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"MLB3DropboxPrefKey"];
+    
+    if (dropboxOn) {
+        DBSession* dbSession =
+        [[DBSession alloc]
+         initWithAppKey:@"mqrf94btlab7daa"
+         appSecret:@"bfsgvafe28kedjl"
+         root:kDBRootDropbox];// either kDBRootAppFolder or kDBRootDropbox;
+        [DBSession setSharedSession:dbSession];
+        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        UIViewController *rootViewController = window.rootViewController;
+        
+        if (![[DBSession sharedSession] isLinked]) {
+            [[DBSession sharedSession] linkFromController:rootViewController];
+        }
+    }
 
+}
 - (void)connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error {
     connection = nil;
     xmlData = nil;
@@ -103,6 +116,8 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
+    
+    
     if ([elementName isEqual:@"piece"]) {
         channel = [[MLB3PieceChannel alloc] init];
         [channel setParentParserDelegate:self];
@@ -113,6 +128,8 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if ([elementName isEqual:@"pieces"]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *instrument = [defaults objectForKey:MLB3InstrumentPrefKey];
         
     }
 }
@@ -140,9 +157,18 @@ NSString * const MLB3DropBoxPathPrefKey = @"MLB3DropBoxPathPrefKey";
 - (void)loadAllPiecesFromDropBox {
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL dropBoxOn = [defaults boolForKey:@"MLB3DropBoxPrefKey"];
+    if (!dropBoxOn) {
+        return;
+    }
+    [self initDropbox];
     NSString *path = [defaults objectForKey:MLB3DropBoxPathPrefKey];
     if (path) {
-        [[self restClient] loadMetadata:path];
+        if ([path isEqualToString:@""]) {
+            [[self restClient] loadMetadata:@"/"];
+        } else {
+            [[self restClient] loadMetadata:path];
+        }
     } else {
         [[self restClient] loadMetadata:@"/"];
     }

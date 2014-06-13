@@ -37,6 +37,10 @@
     if (!dropBoxPath) {
         [self registerDefaultsFromSettingsBundle];
     }
+    NSString *instrument = [standardUserDefaults objectForKey:@"MLB3InstrumentPrefKey"];
+    if (!instrument) {
+        [self registerDefaultsFromSettingsBundle];
+    }
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;

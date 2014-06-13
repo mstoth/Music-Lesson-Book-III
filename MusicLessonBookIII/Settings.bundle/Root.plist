@@ -5,10 +5,20 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Dropbox On</string>
+			<key>Key</key>
+			<string>MLB3DropboxPrefKey</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
 			<key>Title</key>
 			<string>Instrument</string>
 			<key>Type</key>
-			<string>Text Field</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>DefaultValue</key>
 			<string>Piano</string>
 			<key>Key</key>
