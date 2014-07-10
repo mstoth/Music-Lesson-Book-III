@@ -66,7 +66,7 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
         //connection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
         xmlData = [[NSMutableData alloc] init];
         connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self startImmediately:YES];
-
+        [self initDropbox];
     }
     
 
@@ -90,8 +90,8 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
             [[DBSession sharedSession] linkFromController:rootViewController];
         }
     }
-
 }
+
 - (void)connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error {
     connection = nil;
     xmlData = nil;
@@ -128,8 +128,8 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if ([elementName isEqual:@"pieces"]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *instrument = [defaults objectForKey:MLB3InstrumentPrefKey];
+        // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        // NSString *instrument = [defaults objectForKey:MLB3InstrumentPrefKey];
         
     }
 }
@@ -157,11 +157,16 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
 - (void)loadAllPiecesFromDropBox {
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL dropBoxOn = [defaults boolForKey:@"MLB3DropBoxPrefKey"];
+    // BOOL dropBoxOn = [defaults boolForKey:@"MLB3DropBoxPrefKey"];
+    // if (dropBoxOn == nil) {
+        // need to deal with no default.
+        // for now assume yes
+        BOOL dropBoxOn = YES;
+    // }
     if (!dropBoxOn) {
         return;
     }
-    [self initDropbox];
+    // [self initDropbox];
     NSString *path = [defaults objectForKey:MLB3DropBoxPathPrefKey];
     if (path) {
         if ([path isEqualToString:@""]) {
@@ -175,6 +180,12 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
 }
 
 - (Piece *)createPiece {
+    // Don't keep creating new 'New Piece' entries.
+    for (Piece *p in [self allPiecesFromDatabase]) {
+        if ([p.title isEqualToString:@"New Piece"]) {
+            return p;
+        }
+    }
     Piece *newPiece = (Piece *)[NSEntityDescription insertNewObjectForEntityForName:@"Piece" inManagedObjectContext:context];
     newPiece.title = @"New Piece";
     return newPiece;

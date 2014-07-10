@@ -39,6 +39,7 @@
 {
     [super viewDidLoad];
     selectedPath = nil;
+    autocomplete = YES;
     [self.viewButton setHidden:YES];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
@@ -112,7 +113,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND composer = %@",self.titleTextField.text, self.composerTextField.text];
     [request setPredicate:predicate];
     NSArray *result = [context executeFetchRequest:request error:&error];
-    if ([result count] > 1) {
+    if ([result count] == 1) {
         [context deleteObject:self.piece];
         self.piece = [result firstObject];
     }
@@ -289,6 +290,20 @@
             break;
     }
 }
+- (IBAction)toggleAutocomplete:(id)sender {
+    if (autocomplete) {
+        [self.autoCompleteButton setTitle:@"Turn On" forState:UIControlStateNormal];
+        autocomplete = NO;
+        [self.titleTextField setAutocompleteDataSource:nil];
+        [self.titleTextField setAutoCompleteTextFieldDelegate:nil];
+    } else {
+        autocomplete = YES;
+        [self.autoCompleteButton setTitle:@"Turn Off" forState:UIControlStateNormal];
+        [self.titleTextField setAutocompleteDataSource:[MLB3Store sharedStore]];
+        [self.titleTextField setAutoCompleteTextFieldDelegate:[MLB3Store sharedStore]];
+    }
+}
+
 - (IBAction)changeSource:(UISegmentedControl *)sender {
     
     switch ([self.sourceSegmentedControl selectedSegmentIndex]) {
@@ -305,7 +320,7 @@
                 [av show];
                 [self.sourceSegmentedControl setSelectedSegmentIndex:0];
             } else {
-                [[MLB3Store sharedStore] initDropbox];
+                // [[MLB3Store sharedStore] initDropbox];
                 [[MLB3Store sharedStore] loadAllPiecesFromDropBox];
                 [self.tableView reloadData];
                 [self.viewButton setHidden:NO];
@@ -430,7 +445,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    [self updateOtherTextFields];
+    //[self updateOtherTextFields];
     return YES;
 }
 

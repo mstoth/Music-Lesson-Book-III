@@ -17,9 +17,12 @@
     //NSMutableArray *piecesForTable;
     MLB3PiecesChannel *channel;
     NSString *selectedPath;
+    BOOL autocomplete;
     UIDocumentInteractionController *docController;
 }
 @property (weak, nonatomic) IBOutlet UIButton *viewButton;
+@property (weak, nonatomic) IBOutlet UIButton *autoCompleteButton;
+- (IBAction)toggleAutocomplete:(id)sender;
 - (IBAction)changeSource:(UISegmentedControl *)sender;
 - (IBAction)viewPDF:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

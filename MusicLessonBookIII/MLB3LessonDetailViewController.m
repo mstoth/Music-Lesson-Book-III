@@ -448,6 +448,120 @@
     [self setBpm:self.bigStepper.value];
 }
 
+#pragma mark -
+#pragma mark Audio
+- (IBAction)record:(id)sender {
+    
+    //NSDictionary *settings = [NSDictionary dictionaryWithObjectsAndKeys:kA, AVEncoderAudioQualityKey, nil];
+    //AVAudioRecorder *recorder = [[AVAudioRecorder alloc] initWithURL:fileName settings:settings error:&error];
+    NSError *outError = nil;
+    NSDictionary *settings = @{};
+    NSURL *url = [[NSURL alloc] initWithString:@"File Name"];
+    AVAudioRecorder *recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&outError];
+    recorder = nil;
+}
+
+
+
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error {
+    
+}
+
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections {
+    
+}
+#pragma mark -
+#pragma mark Email Functions
+
+
+- (IBAction)emailLesson:(id)sender {
+    [self actionEmailComposer];
+}
+
+- (IBAction)actionEmailComposer {
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Lesson"];
+        
+        if ([self.lesson.student email] == nil) {
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Email Error." message:@"Student has no email." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+            return;
+        }
+        [mailViewController setToRecipients:[NSArray arrayWithObject:[self.lesson.student email]]];
+        [mailViewController setMessageBody:[self lessonBodyForPrint] isHTML:YES];
+        //for (Piece *p in self.lesson.pieces) {
+            //Recording *r = (Recording *)ps.recording;
+//            if ((ps.recording != nil) && (r.data != nil)) {
+//                NSString *message;
+//                message = [[NSString alloc] initWithFormat:@"Include Recording for %@?",ps.pieceTitle];
+//                BOOL includeRecording = [ModalAlertView ask:message];
+//                NSString *fileName = [ps.pieceTitle stringByAppendingString:@".caf"];
+//                if (includeRecording) {
+//                    NSString *path = [[self applicationDocumentsDirectory] path];
+//                    path = [path stringByAppendingPathComponent:fileName];
+//                    [[NSFileManager defaultManager] createFileAtPath:path contents:r.data attributes:nil];
+//                    [mailViewController addAttachmentData:r.data mimeType:@"audio/x-caf" fileName:fileName];
+//                }
+//            }
+        //}
+        [self presentViewController:mailViewController animated:YES completion:^{
+            // do nothing
+        }];
+        
+        //[self presentModalViewController:mailViewController animated:YES];
+    } else {
+        ////NSLog(@"Device is unable to send email.");
+    }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController*)controller
+         didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+//    for (Piece *p in self.lesson.pieces) {
+//        NSString *path = [[self applicationDocumentsDirectory] path];
+//        NSString *fileName = [ps.pieceTitle stringByAppendingString:@".caf"];
+//        path = [path stringByAppendingPathComponent:fileName];
+//        [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+//    }
+    if (result == MFMailComposeResultFailed) {
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Email Error" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+        [self dismissViewControllerAnimated:YES completion:^{
+            // do nothing
+        }];
+    }
+    if (result == MFMailComposeResultCancelled) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            // do nothing
+        }];
+    }
+    if (result == MFMailComposeResultSent) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (NSMutableString *)lessonBodyForPrint {
+    NSMutableString *body = [[NSMutableString alloc] initWithString:@"<html><body>"];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateStyle:NSDateFormatterMediumStyle];
+    
+    [body appendFormat:@"<h1>%@</h1>",[df stringFromDate:self.lesson.date]];
+    for (Note *n in self.lesson.notes) {
+        for (Piece *p in self.lesson.pieces) {
+            if ([p isEqual:n.piece]) {
+                [body appendFormat:@"<h3>%@</h3><p>%@</p>",p.title,n.body];
+            }
+        }
+    }
+    [body appendString:@"</body></html>"];
+    return body;
+}
+
+
+
+
 
 
     @end

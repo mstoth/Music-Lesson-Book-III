@@ -10,9 +10,9 @@
 			<key>Title</key>
 			<string>Dropbox On</string>
 			<key>Key</key>
-			<string>MLB3DropboxPrefKey</string>
+			<string>MLB3DropBoxPrefKey</string>
 			<key>DefaultValue</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Title</key>

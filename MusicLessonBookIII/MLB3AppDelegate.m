@@ -55,6 +55,18 @@
         MLB3MasterViewController *controller = (MLB3MasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
+    NSError *setCategoryError = nil;
+    BOOL success = [[AVAudioSession sharedInstance]
+                    setCategory: AVAudioSessionCategoryPlayAndRecord
+                    error: &setCategoryError];
+    if (!success) {
+        /* handle the error in setCategoryError */
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"AVAudioSession Error" message:[setCategoryError localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
+        
+    }
+
     return YES;
 }
 
@@ -80,6 +92,9 @@
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
     
+    BOOL dropBoxOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"MLB3DropBoxPrefKey"];
+    if (dropBoxOn)
+        NSLog(@"Drop box is on.");
 }
 
 

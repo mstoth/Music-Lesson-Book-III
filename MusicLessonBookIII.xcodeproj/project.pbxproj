@@ -22,7 +22,6 @@
 		A405A7EA18F34B14003F4595 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7E918F34B14003F4595 /* Photo.m */; };
 		A405A7ED18F34B57003F4595 /* MLB3Store.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EC18F34B57003F4595 /* MLB3Store.m */; };
 		A405A7F018F34BBD003F4595 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = A405A7EF18F34BBD003F4595 /* Student.m */; };
-		A405A7F218F34C3D003F4595 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A405A7F118F34C3D003F4595 /* DropboxSDK.framework */; };
 		A409DD481913DF550062F955 /* MLB3StudentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */; };
 		A409DD4B1914692F0062F955 /* MLB3RepertoireTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD4A1914692F0062F955 /* MLB3RepertoireTableViewController.m */; };
 		A409DD4D191474490062F955 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A409DD4C191474490062F955 /* AVFoundation.framework */; };
@@ -48,6 +47,9 @@
 		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
 		A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */; };
+		A47017E51960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
+		A47017E61960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
+		A4D39D551969EA9B0099BE68 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D39D541969EA9B0099BE68 /* libOCMock.a */; };
 		A4FFF5BD18F2EC7200E50485 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BC18F2EC7200E50485 /* Foundation.framework */; };
 		A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */; };
 		A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FFF5C018F2EC7200E50485 /* UIKit.framework */; };
@@ -111,7 +113,6 @@
 		A405A7EC18F34B57003F4595 /* MLB3Store.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3Store.m; sourceTree = "<group>"; };
 		A405A7EE18F34BBD003F4595 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		A405A7EF18F34BBD003F4595 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
-		A405A7F118F34C3D003F4595 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		A409DD461913DF550062F955 /* MLB3StudentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3StudentTableViewCell.h; sourceTree = "<group>"; };
 		A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3StudentTableViewCell.m; sourceTree = "<group>"; };
 		A409DD491914692F0062F955 /* MLB3RepertoireTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3RepertoireTableViewController.h; sourceTree = "<group>"; };
@@ -141,6 +142,17 @@
 		A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PiecesChannel.m; sourceTree = "<group>"; };
 		A42279B81901EA5D00747AD6 /* MLB3PieceChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PieceChannel.h; sourceTree = "<group>"; };
 		A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceChannel.m; sourceTree = "<group>"; };
+		A47017E41960845900B1A68F /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		A4D39D541969EA9B0099BE68 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../MusicLessonBookIII/libOCMock.a; sourceTree = "<group>"; };
+		A4D39D571969EABA0099BE68 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		A4D39D581969EABA0099BE68 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		A4D39D591969EABA0099BE68 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		A4D39D5A1969EABA0099BE68 /* OCMLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMLocation.h; sourceTree = "<group>"; };
+		A4D39D5B1969EABA0099BE68 /* OCMMacroState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMMacroState.h; sourceTree = "<group>"; };
+		A4D39D5C1969EABA0099BE68 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		A4D39D5D1969EABA0099BE68 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
+		A4D39D5E1969EABA0099BE68 /* OCMRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMRecorder.h; sourceTree = "<group>"; };
+		A4D39D5F1969EABA0099BE68 /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 		A4FFF5B918F2EC7100E50485 /* MusicLessonBookIII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicLessonBookIII.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FFF5BC18F2EC7200E50485 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,11 +182,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47017E51960845900B1A68F /* DropboxSDK.framework in Frameworks */,
 				A409DD4D191474490062F955 /* AVFoundation.framework in Frameworks */,
 				A4FFF5BF18F2EC7200E50485 /* CoreGraphics.framework in Frameworks */,
 				A4FFF5C318F2EC7200E50485 /* CoreData.framework in Frameworks */,
 				A4FFF5C118F2EC7200E50485 /* UIKit.framework in Frameworks */,
-				A405A7F218F34C3D003F4595 /* DropboxSDK.framework in Frameworks */,
 				A4FFF5BD18F2EC7200E50485 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +198,8 @@
 				A4FFF5E718F2EC7200E50485 /* XCTest.framework in Frameworks */,
 				A4FFF5EA18F2EC7200E50485 /* CoreData.framework in Frameworks */,
 				A4FFF5E918F2EC7200E50485 /* UIKit.framework in Frameworks */,
+				A4D39D551969EA9B0099BE68 /* libOCMock.a in Frameworks */,
+				A47017E61960845900B1A68F /* DropboxSDK.framework in Frameworks */,
 				A4FFF5E818F2EC7200E50485 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +207,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4D39D561969EABA0099BE68 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				A4D39D571969EABA0099BE68 /* NSNotificationCenter+OCMAdditions.h */,
+				A4D39D581969EABA0099BE68 /* OCMArg.h */,
+				A4D39D591969EABA0099BE68 /* OCMConstraint.h */,
+				A4D39D5A1969EABA0099BE68 /* OCMLocation.h */,
+				A4D39D5B1969EABA0099BE68 /* OCMMacroState.h */,
+				A4D39D5C1969EABA0099BE68 /* OCMock.h */,
+				A4D39D5D1969EABA0099BE68 /* OCMockObject.h */,
+				A4D39D5E1969EABA0099BE68 /* OCMRecorder.h */,
+				A4D39D5F1969EABA0099BE68 /* OCMStubRecorder.h */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
 		A4FFF5B018F2EC7100E50485 = {
 			isa = PBXGroup;
 			children = (
@@ -215,8 +245,8 @@
 		A4FFF5BB18F2EC7200E50485 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A47017E41960845900B1A68F /* DropboxSDK.framework */,
 				A409DD4C191474490062F955 /* AVFoundation.framework */,
-				A405A7F118F34C3D003F4595 /* DropboxSDK.framework */,
 				A4FFF5BC18F2EC7200E50485 /* Foundation.framework */,
 				A4FFF5BE18F2EC7200E50485 /* CoreGraphics.framework */,
 				A4FFF5C018F2EC7200E50485 /* UIKit.framework */,
@@ -310,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FFF5F318F2EC7300E50485 /* MusicLessonBookIIITests.m */,
+				A4D39D561969EABA0099BE68 /* OCMock */,
 				A4FFF5EE18F2EC7200E50485 /* Supporting Files */,
 			);
 			path = MusicLessonBookIIITests;
@@ -318,6 +349,7 @@
 		A4FFF5EE18F2EC7200E50485 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A4D39D541969EA9B0099BE68 /* libOCMock.a */,
 				A4FFF5EF18F2EC7200E50485 /* MusicLessonBookIIITests-Info.plist */,
 				A4FFF5F018F2EC7200E50485 /* InfoPlist.strings */,
 			);
@@ -661,6 +693,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
@@ -669,6 +702,16 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MusicLessonBookIIITests/MusicLessonBookIIITests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MusicLessonBookIII",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -683,10 +726,21 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
 				INFOPLIST_FILE = "MusicLessonBookIIITests/MusicLessonBookIIITests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MusicLessonBookIII",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

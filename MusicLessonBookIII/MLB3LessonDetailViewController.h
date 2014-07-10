@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import "Student.h"
 #import "Lesson.h"
 #import "MLB3Store.h"
 
@@ -16,7 +18,7 @@
 #define kMinBPM 40
 #define kDefaultBPM 80
 
-@interface MLB3LessonDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+@interface MLB3LessonDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate,AVCaptureFileOutputRecordingDelegate> {
     NSMutableDictionary *notes;
     NSManagedObjectContext *context;
     BOOL metronomeOn;
@@ -24,6 +26,8 @@
     CGFloat duration;
 
 }
+- (IBAction)record:(id)sender;
+- (IBAction)emailLesson:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *metronomeTextField;
 @property (nonatomic, retain) IBOutlet UIButton *metronomeButton;
 - (IBAction)toggleMetronome:(id)sender;
