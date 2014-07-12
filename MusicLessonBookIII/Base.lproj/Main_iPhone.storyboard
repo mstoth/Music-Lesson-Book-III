@@ -448,16 +448,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="emailLesson:" destination="tIC-ca-SzI" eventType="touchUpInside" id="Mnc-b1-F0y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM3-4o-h5J">
-                                <rect key="frame" x="250" y="107" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Record">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="record:" destination="tIC-ca-SzI" eventType="touchUpInside" id="mZA-wM-x3U"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -683,6 +673,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="toggleRed:" destination="HXq-8j-rD0" eventType="touchUpInside" id="gLy-I0-seq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRE-0h-aoK">
+                                <rect key="frame" x="208" y="233" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="record:" destination="HXq-8j-rD0" eventType="touchUpInside" id="AIk-e5-Fx7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZl-tr-OFd">
+                                <rect key="frame" x="154" y="233" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteRecording:" destination="HXq-8j-rD0" eventType="touchUpInside" id="hnS-ao-102"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -692,11 +702,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <navigationItem key="navigationItem" id="V3B-iO-Rva"/>
                     <connections>
+                        <outlet property="deleteButton" destination="yZl-tr-OFd" id="lGI-uL-qgz"/>
                         <outlet property="gestureRecognizer" destination="Fyu-HD-Xsj" id="2u2-4D-Y9z"/>
                         <outlet property="goldStar" destination="gpy-s7-4AQ" id="LTI-vB-fd1"/>
                         <outlet property="greenStar" destination="axe-ZY-XM4" id="yRP-k9-p3T"/>
                         <outlet property="lastLessonTextView" destination="NTI-QG-FUP" id="yax-r2-h4r"/>
                         <outlet property="noteTextView" destination="v41-D4-0dz" id="XAt-3J-1UG"/>
+                        <outlet property="recordButton" destination="eRE-0h-aoK" id="8nV-Xa-JLf"/>
                         <outlet property="redStar" destination="QI4-U8-UYC" id="nuf-s4-QDs"/>
                         <outlet property="titleLabel" destination="QJx-tn-fTW" id="uPq-bL-vmO"/>
                     </connections>

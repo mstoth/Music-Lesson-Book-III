@@ -2,7 +2,7 @@
 //  Note.m
 //  MusicLessonBookIII
 //
-//  Created by Michael Toth on 5/4/14.
+//  Created by Michael Toth on 7/12/14.
 //  Copyright (c) 2014 Michael Toth. All rights reserved.
 //
 
@@ -14,8 +14,9 @@
 @implementation Note
 
 @dynamic body;
-@dynamic title;
 @dynamic rating;
+@dynamic title;
+@dynamic recording;
 @dynamic lesson;
 @dynamic piece;
 

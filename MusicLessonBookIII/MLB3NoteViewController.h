@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "Note.h"
 
-@interface MLB3NoteViewController : UIViewController <UIGestureRecognizerDelegate> {
+@interface MLB3NoteViewController : UIViewController <UIGestureRecognizerDelegate,AVAudioSessionDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
     NSManagedObjectContext *context;
+    AVAudioPlayer *player;
+    AVAudioRecorder *recorder;
+    NSURL *recordingURL;
+
 }
+- (IBAction)record:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (strong, nonatomic) Note *note;
+@property (weak, nonatomic) IBOutlet UIButton *recordButton;
+- (IBAction)deleteRecording:(id)sender;
 @property (strong, nonatomic) Note *lastWeekNote;
 - (IBAction)save:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *lastLessonTextView;

@@ -10,10 +10,10 @@
 #import "MLB3NoteViewController.h"
 #import "Piece.h"
 #import "MLB3PieceChannel.h"
-
+#import <AVFoundation/AVFoundation.h>
 @class MLB3PiecesChannel;
 
-@interface MLB3PieceDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSXMLParserDelegate, UITextFieldDelegate, UIDocumentInteractionControllerDelegate, UIAlertViewDelegate> {
+@interface MLB3PieceDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSXMLParserDelegate, UITextFieldDelegate, UIDocumentInteractionControllerDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate,  AVAudioSessionDelegate> {
     //NSMutableArray *piecesForTable;
     MLB3PiecesChannel *channel;
     NSString *selectedPath;

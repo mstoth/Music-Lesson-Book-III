@@ -37,8 +37,6 @@
 		A409DD651916E6EE0062F955 /* redstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD631916E6EE0062F955 /* redstar.png */; };
 		A409DD671916E8370062F955 /* outlinestar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD661916E8370062F955 /* outlinestar.png */; };
 		A409DD681916E8370062F955 /* outlinestar.png in Resources */ = {isa = PBXBuildFile; fileRef = A409DD661916E8370062F955 /* outlinestar.png */; };
-		A409DD6B1916EE6A0062F955 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6A1916EE6A0062F955 /* Note.m */; };
-		A409DD6C1916EE6A0062F955 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6A1916EE6A0062F955 /* Note.m */; };
 		A409DD6F19181B3B0062F955 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6E19181B3B0062F955 /* Piece.m */; };
 		A409DD7019181B3B0062F955 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A409DD6E19181B3B0062F955 /* Piece.m */; };
 		A41A26FA191CF8D30048F265 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A41A26F7191CF8D30048F265 /* HTAutocompleteTextField.m */; };
@@ -47,6 +45,7 @@
 		A42279B41900B02300747AD6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A42279B31900B02300747AD6 /* Settings.bundle */; };
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
 		A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */; };
+		A46636CC1971D9B700067C04 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A46636CB1971D9B700067C04 /* Note.m */; };
 		A47017E51960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
 		A47017E61960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
 		A4D39D551969EA9B0099BE68 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D39D541969EA9B0099BE68 /* libOCMock.a */; };
@@ -128,8 +127,6 @@
 		A409DD601916E6E10062F955 /* goldstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldstar.png; sourceTree = "<group>"; };
 		A409DD631916E6EE0062F955 /* redstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redstar.png; sourceTree = "<group>"; };
 		A409DD661916E8370062F955 /* outlinestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outlinestar.png; sourceTree = "<group>"; };
-		A409DD691916EE6A0062F955 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		A409DD6A1916EE6A0062F955 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		A409DD6D19181B3B0062F955 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Piece.h; sourceTree = "<group>"; };
 		A409DD6E19181B3B0062F955 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Piece.m; sourceTree = "<group>"; };
 		A41A26F6191CF8D30048F265 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -142,6 +139,8 @@
 		A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PiecesChannel.m; sourceTree = "<group>"; };
 		A42279B81901EA5D00747AD6 /* MLB3PieceChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLB3PieceChannel.h; sourceTree = "<group>"; };
 		A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceChannel.m; sourceTree = "<group>"; };
+		A46636CA1971D9B700067C04 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		A46636CB1971D9B700067C04 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		A47017E41960845900B1A68F /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		A4D39D541969EA9B0099BE68 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../MusicLessonBookIII/libOCMock.a; sourceTree = "<group>"; };
 		A4D39D571969EABA0099BE68 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -313,10 +312,10 @@
 				A405A7E918F34B14003F4595 /* Photo.m */,
 				A405A7DD18F34B13003F4595 /* Lesson.m */,
 				A4FFF5D618F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld */,
+				A46636CA1971D9B700067C04 /* Note.h */,
+				A46636CB1971D9B700067C04 /* Note.m */,
 				A409DD6D19181B3B0062F955 /* Piece.h */,
 				A409DD6E19181B3B0062F955 /* Piece.m */,
-				A409DD691916EE6A0062F955 /* Note.h */,
-				A409DD6A1916EE6A0062F955 /* Note.m */,
 				A405A7EE18F34BBD003F4595 /* Student.h */,
 				A405A7EF18F34BBD003F4595 /* Student.m */,
 				A42279B119009C2600747AD6 /* DBChooser.bundle */,
@@ -472,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46636CC1971D9B700067C04 /* Note.m in Sources */,
 				A41A26FA191CF8D30048F265 /* HTAutocompleteTextField.m in Sources */,
 				A409DD6F19181B3B0062F955 /* Piece.m in Sources */,
 				A405A7CD18F346EE003F4595 /* MLB3EditStudentViewController.m in Sources */,
@@ -496,7 +496,6 @@
 				A409DD591915A7E90062F955 /* MLB3SummaryViewController.m in Sources */,
 				A4FFF5CB18F2EC7200E50485 /* main.m in Sources */,
 				A405A7D118F346EE003F4595 /* MLB3DetailViewController.m in Sources */,
-				A409DD6B1916EE6A0062F955 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +505,6 @@
 			files = (
 				A409DD7019181B3B0062F955 /* Piece.m in Sources */,
 				A4FFF5F418F2EC7300E50485 /* MusicLessonBookIIITests.m in Sources */,
-				A409DD6C1916EE6A0062F955 /* Note.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
