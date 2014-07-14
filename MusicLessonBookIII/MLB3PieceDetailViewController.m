@@ -76,7 +76,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GTMFilesReady:) name:@"GTMFilesDownloaded" object:nil];
     
 	// Do any additional setup after loading the view.
+    tapper = [[UITapGestureRecognizer alloc]
+              initWithTarget:self action:@selector(handleSingleTap:)];
+    tapper.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapper];
+
 }
+
+- (void)handleSingleTap:(UITapGestureRecognizer *) sender
+{
+    
+    [self.view endEditing:YES];
+}
+
 
 - (void)dealloc {
     [[NSNotificationCenter  defaultCenter] removeObserver:self];
@@ -116,6 +128,7 @@
     if ([result count] == 1) {
         [context deleteObject:self.piece];
         self.piece = [result firstObject];
+        [self.lesson addPiecesObject:self.piece];
     }
     
     self.piece.title = self.titleTextField.text;

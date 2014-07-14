@@ -15,5 +15,6 @@
     NSMutableArray *lessons;
     NSMutableString *report;
 }
+- (NSMutableString *)createReport;
 @property (nonatomic, retain) Student *student;
 @end

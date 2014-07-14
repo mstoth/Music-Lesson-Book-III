@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Student.h"
 #import "MLB3LessonTableViewController.h"
+#import "MLB3HelpViewController.h"
 #import "MLB3AppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
@@ -23,10 +24,10 @@
 
 @property (strong, nonatomic) Student *student;
 - (IBAction)chooseStudent:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *addPieceButton;
-- (IBAction)addPiece:(id)sender;
 - (IBAction)showRepertoire:(id)sender;
 - (IBAction)showSummary:(id)sender;
+- (IBAction)showHelp:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 
 @property (weak, nonatomic) IBOutlet UIView *auxView;
 @property (nonatomic, assign) ABAddressBookRef addressBook; 

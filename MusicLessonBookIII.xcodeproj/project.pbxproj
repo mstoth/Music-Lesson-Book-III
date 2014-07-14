@@ -46,6 +46,12 @@
 		A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B619018D8500747AD6 /* MLB3PiecesChannel.m */; };
 		A42279BA1901EA5D00747AD6 /* MLB3PieceChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */; };
 		A46636CC1971D9B700067C04 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = A46636CB1971D9B700067C04 /* Note.m */; };
+		A46636CE1971E2D400067C04 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A46636CD1971E2D400067C04 /* mainScreen.png */; };
+		A46636CF1971E51600067C04 /* mainScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A46636CD1971E2D400067C04 /* mainScreen.png */; };
+		A46636D21971F29000067C04 /* MLB3HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46636D11971F29000067C04 /* MLB3HelpViewController.m */; };
+		A46636D41971F6C300067C04 /* help1.html in Resources */ = {isa = PBXBuildFile; fileRef = A46636D31971F6C300067C04 /* help1.html */; };
+		A46636D519724C3700067C04 /* help1.html in Resources */ = {isa = PBXBuildFile; fileRef = A46636D31971F6C300067C04 /* help1.html */; };
+		A46636D71972BA2600067C04 /* self.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A46636D61972BA2600067C04 /* self.jpg */; };
 		A47017E51960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
 		A47017E61960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
 		A4D39D551969EA9B0099BE68 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D39D541969EA9B0099BE68 /* libOCMock.a */; };
@@ -141,6 +147,11 @@
 		A42279B91901EA5D00747AD6 /* MLB3PieceChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLB3PieceChannel.m; sourceTree = "<group>"; };
 		A46636CA1971D9B700067C04 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		A46636CB1971D9B700067C04 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		A46636CD1971E2D400067C04 /* mainScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainScreen.png; sourceTree = "<group>"; };
+		A46636D01971F29000067C04 /* MLB3HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLB3HelpViewController.h; path = ../MLB3HelpViewController.h; sourceTree = "<group>"; };
+		A46636D11971F29000067C04 /* MLB3HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLB3HelpViewController.m; path = ../MLB3HelpViewController.m; sourceTree = "<group>"; };
+		A46636D31971F6C300067C04 /* help1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help1.html; sourceTree = "<group>"; };
+		A46636D61972BA2600067C04 /* self.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = self.jpg; sourceTree = "<group>"; };
 		A47017E41960845900B1A68F /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		A4D39D541969EA9B0099BE68 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../MusicLessonBookIII/libOCMock.a; sourceTree = "<group>"; };
 		A4D39D571969EABA0099BE68 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -258,7 +269,10 @@
 		A4FFF5C418F2EC7200E50485 /* MusicLessonBookIII */ = {
 			isa = PBXGroup;
 			children = (
+				A46636D31971F6C300067C04 /* help1.html */,
 				A409DD5A1916D2870062F955 /* tick.caf */,
+				A46636D61972BA2600067C04 /* self.jpg */,
+				A46636CD1971E2D400067C04 /* mainScreen.png */,
 				A41A26F6191CF8D30048F265 /* HTAutocompleteTextField.h */,
 				A41A26F7191CF8D30048F265 /* HTAutocompleteTextField.m */,
 				A400E133192599A400A90E3D /* MLB3AutocompleteTextField.h */,
@@ -285,6 +299,8 @@
 				A409DD471913DF550062F955 /* MLB3StudentTableViewCell.m */,
 				A405A7C318F346EE003F4595 /* MLB3DetailViewController.h */,
 				A405A7C418F346EE003F4595 /* MLB3DetailViewController.m */,
+				A46636D01971F29000067C04 /* MLB3HelpViewController.h */,
+				A46636D11971F29000067C04 /* MLB3HelpViewController.m */,
 				A405A7C518F346EE003F4595 /* MLB3LessonTableViewController.h */,
 				A405A7C618F346EE003F4595 /* MLB3LessonTableViewController.m */,
 				A405A7BD18F346EE003F4595 /* MLB3EditStudentViewController.h */,
@@ -439,11 +455,14 @@
 				A409DD5B1916D2870062F955 /* tick.caf in Resources */,
 				A4FFF5D518F2EC7200E50485 /* Main_iPad.storyboard in Resources */,
 				A405A7D018F346EE003F4595 /* MLB3EditLessonViewController.strings in Resources */,
+				A46636CE1971E2D400067C04 /* mainScreen.png in Resources */,
 				A405A7CE18F346EE003F4595 /* MLB3EditStudentViewController.xib in Resources */,
 				A4FFF5E018F2EC7200E50485 /* Images.xcassets in Resources */,
 				A409DD611916E6E10062F955 /* goldstar.png in Resources */,
 				A4FFF5D218F2EC7200E50485 /* Main_iPhone.storyboard in Resources */,
 				A42279B41900B02300747AD6 /* Settings.bundle in Resources */,
+				A46636D41971F6C300067C04 /* help1.html in Resources */,
+				A46636D71972BA2600067C04 /* self.jpg in Resources */,
 				A409DD641916E6EE0062F955 /* redstar.png in Resources */,
 				A4FFF5C918F2EC7200E50485 /* InfoPlist.strings in Resources */,
 				A409DD671916E8370062F955 /* outlinestar.png in Resources */,
@@ -455,6 +474,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46636D519724C3700067C04 /* help1.html in Resources */,
+				A46636CF1971E51600067C04 /* mainScreen.png in Resources */,
 				A409DD651916E6EE0062F955 /* redstar.png in Resources */,
 				A4FFF5F218F2EC7200E50485 /* InfoPlist.strings in Resources */,
 				A409DD5C1916D2870062F955 /* tick.caf in Resources */,
@@ -478,6 +499,7 @@
 				A409DD4B1914692F0062F955 /* MLB3RepertoireTableViewController.m in Sources */,
 				A405A7DE18F34B13003F4595 /* Lesson.m in Sources */,
 				A405A7F018F34BBD003F4595 /* Student.m in Sources */,
+				A46636D21971F29000067C04 /* MLB3HelpViewController.m in Sources */,
 				A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */,
 				A400E135192599A500A90E3D /* MLB3AutocompleteTextField.m in Sources */,
 				A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */,

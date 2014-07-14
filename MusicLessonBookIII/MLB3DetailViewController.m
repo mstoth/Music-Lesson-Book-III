@@ -40,6 +40,10 @@
         [self.lessonTableView reloadData];
         self.studentPhotoView.image = self.student.photo.image;
         [self setTitle:[self.student valueForKey:@"name"]];
+        MLB3SummaryViewController *svc = [[MLB3SummaryViewController alloc] init];
+        svc.student = self.student;
+        NSMutableString *summaryText = [svc createReport];
+        self.summaryTextView.text = summaryText;
     }
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addLesson:)];
@@ -333,6 +337,16 @@
     [vc setStudent:self.student];
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (IBAction)showHelp:(id)sender {
+    MLB3HelpViewController *hvc = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"HelpView"];
+    [self.navigationController pushViewController:hvc animated:YES];
+}
+
 - (IBAction)addPiece:(id)sender {
     
     [lessonDetailController addPieceWithNavigationalController:self.navigationController];

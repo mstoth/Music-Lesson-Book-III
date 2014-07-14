@@ -18,18 +18,13 @@
 #define kMinBPM 40
 #define kDefaultBPM 80
 
-@interface MLB3LessonDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate,AVCaptureFileOutputRecordingDelegate,AVAudioRecorderDelegate,AVAudioPlayerDelegate> {
+@interface MLB3LessonDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate> {
     NSMutableDictionary *notes;
     NSManagedObjectContext *context;
     BOOL metronomeOn;
     NSThread *myThread;
     CGFloat duration;
-    AVAudioRecorder *recorder;
-    AVAudioPlayer *player;
-    NSURL *recordingURL;
 }
-@property (weak, nonatomic) IBOutlet UIButton *recordButton;
-- (IBAction)record:(id)sender;
 - (IBAction)emailLesson:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *metronomeTextField;
 @property (nonatomic, retain) IBOutlet UIButton *metronomeButton;

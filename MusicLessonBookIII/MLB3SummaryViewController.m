@@ -28,6 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    report = [self createReport];
+    [self.reportTextView setText:report];
+    
+}
+
+- (NSMutableString *)createReport
+{
     report = [[NSMutableString alloc] init];
     // Do any additional setup after loading the view.
     [self.headingLabel setText:[self.student name]];
@@ -38,19 +45,45 @@
     Lesson *lastLesson = [lessons firstObject];
     [report appendString:[NSString stringWithFormat:@"%@ is currently working on %d pieces.",[self.student name],[[lastLesson pieces] count]]];
     int i=0;
+    int lcount=0;
+    
+    
+    NSMutableDictionary *lcounts = [[NSMutableDictionary alloc] init];
+    for (Piece *p in lastLesson.pieces) {
+        for (Lesson *lsn in lessons) {
+            if ([lsn.pieces containsObject:p]) {
+                lcount+=1;
+            }
+        }
+        [lcounts addEntriesFromDictionary:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:lcount] forKey:p.title]];
+        lcount = 0;
+    }
     for (Piece *p in lastLesson.pieces) {
         i=i+1;
-        [report appendString:[NSString stringWithFormat:@"\n\t%d. %@",i,p.title]];
+        [report appendString:[NSString stringWithFormat:@"\n\t%d. %@ (%d)",i,p.title,[[lcounts valueForKey:p.title] intValue]]];
     }
-    
-    if ([lessons count] > 1) {
-        
+    NSMutableDictionary *allPieces = [[NSMutableDictionary alloc] init];
+    for (Lesson *lsn in lessons) {
+        for (Piece *p in lsn.pieces) {
+            if ([allPieces valueForKey:p.title] == nil) {
+                [allPieces addEntriesFromDictionary:[NSDictionary dictionaryWithObject:@1 forKey:p.title]];
+            } else {
+                int val = [[allPieces valueForKey:p.title] intValue];
+                val++;
+                [allPieces setValue:[NSNumber numberWithInt:val] forKeyPath:p.title];
+            }
+        }
     }
-    
-    [self.reportTextView setText:report];
-    
+    [report appendString:[NSString stringWithFormat:@"\n%d Lessons",[lessons count]]];
+    [report appendString:[NSString stringWithFormat:@"\n%d Pieces",[allPieces count]]];
+    int total = 0;
+    for (NSNumber *n in [allPieces allValues]) {
+        total = total + [n intValue];
+    }
+    total = total/[allPieces count];
+    [report appendString:[NSString stringWithFormat:@"\n%d Lessons/Piece (avg.)",total]];
+    return report;
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

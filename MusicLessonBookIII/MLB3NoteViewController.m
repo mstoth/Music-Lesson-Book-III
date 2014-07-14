@@ -83,7 +83,9 @@
 
 - (IBAction)save:(id)sender {
     self.note.body = self.noteTextView.text;
-    self.note.recording = [NSData dataWithContentsOfURL:recordingURL];
+    if (self.note.recording == nil) {
+        self.note.recording = [NSData dataWithContentsOfURL:recordingURL];
+    }
     MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
     [context save:nil];

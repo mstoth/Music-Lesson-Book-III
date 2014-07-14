@@ -12,14 +12,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
-#import "MLB3LessonDetailViewController.h"
+#import "MLB3NoteViewController.h"
 //#import "OCMock.h"
 //#import "OCMockObject.h"
 //#import "OCMMacroState.h"
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface MusicLessonBookIIITests : XCTestCase {
-    MLB3LessonDetailViewController *dvc;
+    MLB3NoteViewController *dvc;
 }
 @end
 
@@ -28,7 +28,7 @@
 - (void)setUp
 {
     [super setUp];
-    dvc = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"LessonDetail"];
+    dvc = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"NoteView"];
     id<UIApplicationDelegate> del = [[UIApplication sharedApplication] delegate];
     UIWindow *w = [del window];
     UINavigationController *rvc = (UINavigationController *)[w rootViewController];
@@ -45,6 +45,9 @@
     [super tearDown];
 }
 
+- (void)testForGreenStar {
+    
+}
 - (void)testForRecorder
 {
     BOOL hasRecordFunction = [dvc canPerformAction:@selector(record:) withSender:self];
@@ -65,11 +68,12 @@
     XCTAssertEqualObjects(button.titleLabel.text, @"Play", @"Record button should say Play after making a recording.");
     
     // file should exist
-    NSURL *recordingURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"recording.mp3"];
+    NSURL *recordingURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"recording.caf"];
     NSString *recordingString = [recordingURL path];
     NSFileManager *fm = [NSFileManager defaultManager];
-    XCTAssertTrue([fm fileExistsAtPath:recordingString],@"recording.mp3 should exist.");
+    XCTAssertTrue([fm fileExistsAtPath:recordingString],@"recording.caf should exist.");
 }
+
 
 #pragma mark - Application's Documents directory
 
