@@ -53,6 +53,8 @@
     [self.difficultyTextField setDelegate:self];
     [self.genreTextField setDelegate:self];
     
+    self.publisherButton.enabled = NO;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateOtherTextFields) name:@"MLB3AutocompleteTextFieldCommitted" object:nil];
     
     if (self.piece) {
@@ -90,12 +92,15 @@
 }
 
 
+
 - (void)dealloc {
     [[NSNotificationCenter  defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(GTMFilesReady:) name:@"GTMFilesDownloaded" object:nil];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -120,7 +125,8 @@
     NSError *error = nil;
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Piece"];
 
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     NSManagedObjectContext *context = delegate.managedObjectContext;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %@ AND composer = %@",self.titleTextField.text, self.composerTextField.text];
     [request setPredicate:predicate];
@@ -226,6 +232,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    self.publisherButton.enabled = YES;
+    
     Piece *selectedPiece;
     NSString *selectedTitle;
     
@@ -318,7 +326,7 @@
 }
 
 - (IBAction)changeSource:(UISegmentedControl *)sender {
-    
+    GTMFirstViewController *controller;
     switch ([self.sourceSegmentedControl selectedSegmentIndex]) {
         case 0:
             [self.tableView reloadData];
@@ -343,6 +351,8 @@
         case 2:
             [self.tableView reloadData];
             [self.viewButton setHidden:YES];
+            controller = [[UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"GTMView"];
+            [self.navigationController pushViewController:controller animated:YES];
             break;
             
         default:
@@ -497,7 +507,123 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
+- (IBAction)selectPublisher:(id)sender {
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Publisher" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Cancel" otherButtonTitles:@"sheetmusicplus",@"IMSLP",@"musicnotes",@"J.W. Pepper",@"musicaneo",@"Alfreds", nil];
+    [as showFromRect:self.publisherButton.frame inView:self.view animated:YES];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    return;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSString *qual;
+    //UIViewController *vcont = [[UIViewController alloc] init];
+    NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+    NSString *urlString = [[NSString alloc] init];
+    
+    switch (buttonIndex) {
+        case 0:
+            return;
+            break;
+        case 1:
+        {
+            if (ip == nil) {
+                qual = @"";
+            } else {
+                UITableViewCell *cell =  [self.tableView cellForRowAtIndexPath:ip];
+                NSString *pc = [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+                
+                NSString *pt = [cell.textLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+                qual = [NSString stringWithFormat:@"s?q=%@+%@&aiff_id=451477",pt,pc];
+            }
+            urlString = [NSString stringWithFormat:@"http://www.sheetmusicplus.com/%@",qual];
+            
+            break;
+        }
+        case 2:
+        {
+            if (ip == nil) {
+                qual = @"";
+                urlString = @"http://imslp.org";
+            } else {
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+                urlString = [NSString stringWithFormat:@"http://www.google.com/search?q=site:imslp.org+%@%%20%@",
+                             [cell.textLabel.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                             [cell.detailTextLabel.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            }
+            break;
+        }
+        case 3:
+        {
+            if (ip == nil) {
+                urlString = @"http://search.musicnotes.com";
+            } else {
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+                urlString = [NSString stringWithFormat:@"http://search.musicnotes.com/?q=%@+%@",
+                             [cell.textLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                             [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+            }
+            break;
+        }
+        case 4:
+        {
+            if (ip == nil) {
+                urlString = @"http://www.jwpepper.com/sheet-music";
+            } else {
+                UITableViewCell  *cell = [self.tableView cellForRowAtIndexPath:ip];
+                urlString = [NSString stringWithFormat:@"http://www.jwpepper.com/sheet-music/search.jsp?keywords=%@+%@",
+                             [cell.textLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                             [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+            }
+            break;
+        }
+        case 5:
+        {
+            if (ip == nil) {
+                urlString = @"http://www.musicaneo.com";
+            } else {
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+                urlString = [NSString stringWithFormat:@"http://www.musicaneo.com/search.html?q=%@+%@",
+                             [cell.textLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                             [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+            }
+            break;
+        }
+        case 6:
+        {
+            if (ip == nil) {
+                urlString = @"http://www.alfred.com";
+            } else {
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+                urlString = [NSString stringWithFormat:@"http://www.alfred.com/Search/SearchResults.aspx?q=%@+%@&type=All",
+                             [cell.textLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"],
+                             [cell.detailTextLabel.text stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
+            }
+            break;
+        }
+        default:
+            return;
+    }
+    NSURL *url = [NSURL URLWithString:urlString];
+    if (![[UIApplication sharedApplication] openURL:url]) {
+        NSLog(@"Failed to open URL");
+    }
+    //    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(-200, 0, 903, 704)];
+    //    webView.scalesPageToFit = YES;
+    //    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    //    [webView loadRequest:request];
+    //
+    //    vcont.view = webView;
+    //    [self.navigationController pushViewController:vcont animated:YES];
+    
+}
 
 
 @end

@@ -16,5 +16,7 @@
 @dynamic student;
 @dynamic notes;
 @dynamic pieces;
+@dynamic balance;
+
 
 @end

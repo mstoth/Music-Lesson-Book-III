@@ -36,7 +36,7 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
         _autoCompletePieceChannel = nil;
         allPieces = [[NSMutableArray alloc] init];
         gtmPieces = [[NSMutableArray alloc] init];
-        MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
         context = delegate.managedObjectContext;
         
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
@@ -67,11 +67,43 @@ NSString * const MLB3InstrumentPrefKey = @"MLB3InstrumentPrefKey";
         xmlData = [[NSMutableData alloc] init];
         connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self startImmediately:YES];
         [self initDropbox];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlePieceArrayChange:)
+                                                     name:@"piecesUpdated"
+                                                   object:nil];
+        
+
     }
     
 
     return self;
 }
+
+- (void)handlePieceArrayChange:(NSNotification *)note {
+    NSDictionary *pieces4Table = [[note userInfo] valueForKey:@"pieces"];
+    if ([pieces4Table count] == 0)
+        return;
+    gtmPieces = [[NSMutableArray alloc] init];
+    for (NSDictionary *p in pieces4Table) {
+        channel = [[MLB3PieceChannel alloc] init];
+        NSDictionary *ttl = [p valueForKey:@"title"];
+        NSDictionary *comp = [p valueForKey:@"composer"];
+        NSDictionary *diff = [p valueForKey:@"difficulty"];
+        NSDictionary *genr = [p valueForKey:@"genre"];
+        NSString *titleString = [ttl valueForKey:@"text"];
+        NSString *composerString = [comp valueForKey:@"text"];
+        NSString *difficultyString = [diff valueForKey:@"text"];
+        NSString *genreString = [genr valueForKey:@"text"];
+        channel.title = [titleString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        channel.composer = [composerString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        channel.difficulty = [difficultyString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        channel.genre = [genreString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        [gtmPieces addObject:channel];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"GTMFilesDownloaded" object:self];
+
+}
+
 - (void)initDropbox {
     BOOL dropboxOn = [[NSUserDefaults standardUserDefaults] boolForKey:@"MLB3DropboxPrefKey"];
     

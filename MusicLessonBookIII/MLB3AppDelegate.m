@@ -15,7 +15,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
+@synthesize myUbiquityContainer = _myUbiquityContainer;
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
@@ -48,12 +48,12 @@
         splitViewController.delegate = (id)navigationController.topViewController;
         
         UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-        MLB3MasterViewController *controller = (MLB3MasterViewController *)masterNavigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
+        mvc = (MLB3MasterViewController *)masterNavigationController.topViewController;
+        mvc.managedObjectContext = self.managedObjectContext;
     } else {
         UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        MLB3MasterViewController *controller = (MLB3MasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
+        mvc = (MLB3MasterViewController *)navigationController.topViewController;
+        mvc.managedObjectContext = self.managedObjectContext;
     }
     
     NSError *setCategoryError = nil;
@@ -66,9 +66,110 @@
         [av show];
         
     }
-
+    
+    [self setupICloud];
+    // register to observe notifications from the store
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver: self
+     selector: @selector (storeDidChange:)
+     name: NSUbiquitousKeyValueStoreDidChangeExternallyNotification
+     object: [NSUbiquitousKeyValueStore defaultStore]];
+    
+    // get changes that might have happened while this
+    // instance of your app wasn't running
+    [[NSUbiquitousKeyValueStore defaultStore] synchronize];
+    
     return YES;
 }
+
+- (void)setupICloud {
+    id currentiCloudToken = [[NSFileManager defaultManager] ubiquityIdentityToken];
+    
+    
+    BOOL firstLaunchWithiCloudAvailable = YES;
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"iCloudDesired"] == nil) {
+        firstLaunchWithiCloudAvailable = YES;
+    }
+    
+    if (currentiCloudToken) {
+        NSData *newTokenData =
+        [NSKeyedArchiver archivedDataWithRootObject: currentiCloudToken];
+        [[NSUserDefaults standardUserDefaults]
+         setObject: newTokenData
+         forKey: @"com.virtualpianist.MusicLessonBookIII.UbiquityIdentityToken"];
+    } else {
+        [[NSUserDefaults standardUserDefaults]
+         removeObjectForKey: @"com.virtualpianist.MusicLessonBookIII.UbiquityIdentityToken"];
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver: self
+     selector: @selector (iCloudAccountAvailabilityChanged:)
+     name: NSUbiquityIdentityDidChangeNotification
+     object: nil];
+    
+    if (currentiCloudToken && firstLaunchWithiCloudAvailable) {
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              
+                              initWithTitle: @"Choose Storage Option"
+                              
+                              message: @"Should documents be stored in iCloud and available on all your devices?"
+                              delegate: self
+                              cancelButtonTitle: @"Local Only"
+                              otherButtonTitles: @"Use iCloud", nil];
+        [alert show];
+        
+    }
+    
+    
+    dispatch_async (dispatch_get_global_queue (DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        
+        _myUbiquityContainer = [[NSFileManager defaultManager]
+                                URLForUbiquityContainerIdentifier: nil];
+        
+        if (_myUbiquityContainer != nil) {
+            // Your app can write to the ubiquity container
+            dispatch_async (dispatch_get_main_queue (), ^(void) {
+                // On the main thread, update UI and state as appropriate
+                [mvc reloadInputViews];
+            });
+        }
+    });
+
+}
+
+- (void)storeDidChange:(NSNotification *)note {
+    // handle change in key-value icloud storage
+    NSLog(@"HANDLE STORE DID CHANGE!!!");
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        // use icloud
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"iCloudDesired"];
+    }
+    if (buttonIndex == 1) {
+        // use local
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"iCloudDesired"];
+    }
+    
+}
+
+- (void)iCloudAccountAvailabilityChanged:(NSNotification *)note {
+    id currentiCloudToken = [[NSFileManager defaultManager] ubiquityIdentityToken];
+    if (currentiCloudToken) {
+        // handle turning on icloud
+        [self setupICloud];
+    } else {
+        // handle turning off icloud
+        NSLog(@"HANDLE TURNING OFF ICLOUD!!!");
+    }
+}
+
 
 - (void)registerDefaultsFromSettingsBundle {
     // this function writes default settings as settings
@@ -180,9 +281,14 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MusicLessonBookIII.sqlite"];
     
+    NSDictionary *storeOptions =
+    @{NSPersistentStoreUbiquitousContentNameKey: @"MusicLessonBookIIICloudStore"};
+    
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    
+    
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:storeOptions error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

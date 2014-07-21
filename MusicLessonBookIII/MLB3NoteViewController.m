@@ -86,7 +86,7 @@
     if (self.note.recording == nil) {
         self.note.recording = [NSData dataWithContentsOfURL:recordingURL];
     }
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
     [context save:nil];
     [self.navigationController popViewControllerAnimated:YES];

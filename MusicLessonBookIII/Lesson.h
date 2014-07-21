@@ -12,7 +12,7 @@
 @class Student;
 
 @interface Lesson : NSManagedObject
-
+@property (nonatomic) float balance;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) Student *student;
 @property (nonatomic, retain) NSSet *notes;

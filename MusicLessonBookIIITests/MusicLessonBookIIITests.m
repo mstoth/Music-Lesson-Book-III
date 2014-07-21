@@ -13,6 +13,8 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import "MLB3NoteViewController.h"
+#import "Lesson.h"
+
 //#import "OCMock.h"
 //#import "OCMockObject.h"
 //#import "OCMMacroState.h"
@@ -45,6 +47,13 @@
     [super tearDown];
 }
 
+- (void)testForMoneyOwed {
+    Lesson *l = [[Lesson alloc] init];
+    XCTAssertNoThrow(l, @"Lesson exists");
+    XCTAssertNoThrow(l.balance, @"Lesson has balance");
+    l.balance = 50.00;
+    XCTAssertEqual(50.00, l.balance, @"Amount has changed.");
+}
 - (void)testForGreenStar {
     
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Lesson" representedClassName="Lesson" syncable="YES">
+        <attribute name="balance" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="lesson" inverseEntity="Note" syncable="YES"/>
         <relationship name="pieces" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Piece" inverseName="lesson" inverseEntity="Piece" syncable="YES"/>
@@ -41,7 +42,7 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="Lesson" positionX="466" positionY="248" width="128" height="103"/>
+        <element name="Lesson" positionX="466" positionY="248" width="128" height="120"/>
         <element name="Note" positionX="108" positionY="266" width="128" height="135"/>
         <element name="Photo" positionX="448" positionY="152" width="128" height="73"/>
         <element name="Piece" positionX="295" positionY="378" width="128" height="148"/>

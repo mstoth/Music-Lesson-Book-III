@@ -43,7 +43,7 @@
         return [[obj2 date] compare:[obj1 date]];
     }];
     Lesson *lastLesson = [lessons firstObject];
-    [report appendString:[NSString stringWithFormat:@"%@ is currently working on %d pieces.",[self.student name],[[lastLesson pieces] count]]];
+    [report appendString:[NSString stringWithFormat:@"%@ is currently working on %lu pieces.",[self.student name],(unsigned long)[[lastLesson pieces] count]]];
     int i=0;
     int lcount=0;
     
@@ -74,13 +74,17 @@
             }
         }
     }
-    [report appendString:[NSString stringWithFormat:@"\n%d Lessons",[lessons count]]];
-    [report appendString:[NSString stringWithFormat:@"\n%d Pieces",[allPieces count]]];
+    [report appendString:[NSString stringWithFormat:@"\n%lu Lessons",(unsigned long)[lessons count]]];
+    [report appendString:[NSString stringWithFormat:@"\n%lu Pieces",(unsigned long)[allPieces count]]];
     int total = 0;
     for (NSNumber *n in [allPieces allValues]) {
         total = total + [n intValue];
     }
-    total = total/[allPieces count];
+    if ([allPieces count] == 0) {
+        total = 0;
+    } else {
+        total = total/[allPieces count];
+    }
     [report appendString:[NSString stringWithFormat:@"\n%d Lessons/Piece (avg.)",total]];
     return report;
 }

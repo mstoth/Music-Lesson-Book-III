@@ -79,7 +79,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self configureView];
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
     [context save:nil];
 }

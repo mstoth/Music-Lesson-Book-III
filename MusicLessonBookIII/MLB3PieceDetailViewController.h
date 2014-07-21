@@ -10,10 +10,11 @@
 #import "MLB3NoteViewController.h"
 #import "Piece.h"
 #import "MLB3PieceChannel.h"
+#import "GTMFirstViewController.h"
 #import <AVFoundation/AVFoundation.h>
 @class MLB3PiecesChannel;
 
-@interface MLB3PieceDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSXMLParserDelegate, UITextFieldDelegate, UIDocumentInteractionControllerDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate,  AVAudioSessionDelegate> {
+@interface MLB3PieceDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSXMLParserDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIDocumentInteractionControllerDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate, AVAudioRecorderDelegate,  AVAudioSessionDelegate> {
     //NSMutableArray *piecesForTable;
     MLB3PiecesChannel *channel;
     NSString *selectedPath;
@@ -27,6 +28,8 @@
 - (IBAction)toggleAutocomplete:(id)sender;
 - (IBAction)changeSource:(UISegmentedControl *)sender;
 - (IBAction)viewPDF:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *publisherButton;
+- (IBAction)selectPublisher:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Piece *piece;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sourceSegmentedControl;

@@ -64,7 +64,7 @@
             for (Piece *p in lastWeekPieces) {
                 if ([p.title isEqualToString:selectedPiece.title]) {
                     for (Note *n in lastWeekNotes) {
-                        if (n.piece == p) {
+                        if ([n.piece isEqual:p]) {
                             lastWeekNote = n;
                         }
                     }
@@ -128,6 +128,8 @@
                     [cell.imageView setImage:[UIImage imageNamed:@"redstar.png"]];
                     break;
                 case 4:
+                case 5:
+                case 6:
                     [cell.imageView setImage:[UIImage imageNamed:@"goldstar.png"]];
                     break;
                     
@@ -171,7 +173,7 @@
     Note *note;
     note = nil;
     for (Note *n in [self.lesson.notes allObjects]) {
-        if ([n.piece isEqual:p]) {
+        if ([n.piece.title isEqualToString:p.title]) {
             note = n;
             break;
         }
@@ -254,7 +256,7 @@
     [self setBpm:60];
     self.bigStepper.value = 60.0;
     
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
     context = delegate.managedObjectContext;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPiece)];

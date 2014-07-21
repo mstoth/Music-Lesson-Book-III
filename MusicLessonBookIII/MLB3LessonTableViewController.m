@@ -44,11 +44,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.title = @"Lessons";
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
     context = delegate.managedObjectContext;
     [context save:nil];
     _lessonsForTable = nil;
@@ -62,11 +63,28 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    MLB3AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    MLB3AppDelegate *delegate = (MLB3AppDelegate *)[[UIApplication sharedApplication] delegate];
     context = delegate.managedObjectContext;
+    Lesson *lastLesson;
+    if ([[self.student.lessons allObjects] count] > 0) {
+        NSArray *lessons = [[self.student.lessons allObjects] sortedArrayUsingComparator:^NSComparisonResult(Lesson *obj1, Lesson *obj2) {
+            NSDate *d1 = obj1.date;
+            NSDate *d2 = obj2.date;
+            return [d1 compare:d2];
+        }];
+        lastLesson = [lessons lastObject];
+    } else {
+        lastLesson = nil;
+    }
     
-    Lesson *newLesson = (Lesson *)[NSEntityDescription insertNewObjectForEntityForName:@"Lesson" inManagedObjectContext:context];
 
+    Lesson *newLesson = (Lesson *)[NSEntityDescription insertNewObjectForEntityForName:@"Lesson" inManagedObjectContext:context];
+    if (lastLesson == nil) {
+        newLesson.balance = 0.0;
+    } else {
+        newLesson.balance = lastLesson.balance;
+    }
+    
     newLesson.date = [NSDate date];
     [self.student addLessonsObject:newLesson];
     [context save:nil];

@@ -52,6 +52,11 @@
 		A46636D41971F6C300067C04 /* help1.html in Resources */ = {isa = PBXBuildFile; fileRef = A46636D31971F6C300067C04 /* help1.html */; };
 		A46636D519724C3700067C04 /* help1.html in Resources */ = {isa = PBXBuildFile; fileRef = A46636D31971F6C300067C04 /* help1.html */; };
 		A46636D71972BA2600067C04 /* self.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A46636D61972BA2600067C04 /* self.jpg */; };
+		A46636DB197A99E000067C04 /* lessontableview.png in Resources */ = {isa = PBXBuildFile; fileRef = A46636D9197A99E000067C04 /* lessontableview.png */; };
+		A46636DC197A99E000067C04 /* studentview.png in Resources */ = {isa = PBXBuildFile; fileRef = A46636DA197A99E000067C04 /* studentview.png */; };
+		A46636E0197A9ED400067C04 /* GTMFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46636DF197A9ED400067C04 /* GTMFirstViewController.m */; };
+		A46636E3197A9EF500067C04 /* GTMPieceList.m in Sources */ = {isa = PBXBuildFile; fileRef = A46636E2197A9EF500067C04 /* GTMPieceList.m */; };
+		A46636E6197AA11000067C04 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = A46636E5197AA11000067C04 /* XMLReader.m */; };
 		A47017E51960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
 		A47017E61960845900B1A68F /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A47017E41960845900B1A68F /* DropboxSDK.framework */; };
 		A4D39D551969EA9B0099BE68 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D39D541969EA9B0099BE68 /* libOCMock.a */; };
@@ -152,6 +157,16 @@
 		A46636D11971F29000067C04 /* MLB3HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MLB3HelpViewController.m; path = ../MLB3HelpViewController.m; sourceTree = "<group>"; };
 		A46636D31971F6C300067C04 /* help1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = help1.html; sourceTree = "<group>"; };
 		A46636D61972BA2600067C04 /* self.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = self.jpg; sourceTree = "<group>"; };
+		A46636D81974A2E200067C04 /* MusicLessonBookIII.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MusicLessonBookIII.entitlements; sourceTree = "<group>"; };
+		A46636D9197A99E000067C04 /* lessontableview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lessontableview.png; sourceTree = "<group>"; };
+		A46636DA197A99E000067C04 /* studentview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = studentview.png; sourceTree = "<group>"; };
+		A46636DE197A9ED400067C04 /* GTMFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMFirstViewController.h; sourceTree = "<group>"; };
+		A46636DF197A9ED400067C04 /* GTMFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMFirstViewController.m; sourceTree = "<group>"; };
+		A46636E1197A9EF500067C04 /* GTMPieceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMPieceList.h; sourceTree = "<group>"; };
+		A46636E2197A9EF500067C04 /* GTMPieceList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMPieceList.m; sourceTree = "<group>"; };
+		A46636E4197AA11000067C04 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		A46636E5197AA11000067C04 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		A46636E7197AA13200067C04 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		A47017E41960845900B1A68F /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		A4D39D541969EA9B0099BE68 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../MusicLessonBookIII/libOCMock.a; sourceTree = "<group>"; };
 		A4D39D571969EABA0099BE68 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -217,6 +232,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A46636DD197A9A0100067C04 /* help files */ = {
+			isa = PBXGroup;
+			children = (
+				A46636D31971F6C300067C04 /* help1.html */,
+				A46636CD1971E2D400067C04 /* mainScreen.png */,
+				A46636D9197A99E000067C04 /* lessontableview.png */,
+				A46636DA197A99E000067C04 /* studentview.png */,
+			);
+			name = "help files";
+			sourceTree = "<group>";
+		};
 		A4D39D561969EABA0099BE68 /* OCMock */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,10 +295,10 @@
 		A4FFF5C418F2EC7200E50485 /* MusicLessonBookIII */ = {
 			isa = PBXGroup;
 			children = (
-				A46636D31971F6C300067C04 /* help1.html */,
+				A46636DD197A9A0100067C04 /* help files */,
+				A46636D81974A2E200067C04 /* MusicLessonBookIII.entitlements */,
 				A409DD5A1916D2870062F955 /* tick.caf */,
 				A46636D61972BA2600067C04 /* self.jpg */,
-				A46636CD1971E2D400067C04 /* mainScreen.png */,
 				A41A26F6191CF8D30048F265 /* HTAutocompleteTextField.h */,
 				A41A26F7191CF8D30048F265 /* HTAutocompleteTextField.m */,
 				A400E133192599A400A90E3D /* MLB3AutocompleteTextField.h */,
@@ -293,6 +319,13 @@
 				A409DD521915A4520062F955 /* HeaderView.xib */,
 				A4FFF5D018F2EC7200E50485 /* Main_iPhone.storyboard */,
 				A4FFF5D318F2EC7200E50485 /* Main_iPad.storyboard */,
+				A46636DE197A9ED400067C04 /* GTMFirstViewController.h */,
+				A46636DF197A9ED400067C04 /* GTMFirstViewController.m */,
+				A46636E1197A9EF500067C04 /* GTMPieceList.h */,
+				A46636E2197A9EF500067C04 /* GTMPieceList.m */,
+				A46636E7197AA13200067C04 /* constants.h */,
+				A46636E4197AA11000067C04 /* XMLReader.h */,
+				A46636E5197AA11000067C04 /* XMLReader.m */,
 				A4FFF5D918F2EC7200E50485 /* MLB3MasterViewController.h */,
 				A4FFF5DA18F2EC7200E50485 /* MLB3MasterViewController.m */,
 				A409DD461913DF550062F955 /* MLB3StudentTableViewCell.h */,
@@ -419,6 +452,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Michael Toth";
 				TargetAttributes = {
+					A4FFF5B818F2EC7100E50485 = {
+						DevelopmentTeam = 9E7Y9QZC52;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					A4FFF5E418F2EC7200E50485 = {
 						TestTargetID = A4FFF5B818F2EC7100E50485;
 					};
@@ -461,9 +502,11 @@
 				A409DD611916E6E10062F955 /* goldstar.png in Resources */,
 				A4FFF5D218F2EC7200E50485 /* Main_iPhone.storyboard in Resources */,
 				A42279B41900B02300747AD6 /* Settings.bundle in Resources */,
+				A46636DB197A99E000067C04 /* lessontableview.png in Resources */,
 				A46636D41971F6C300067C04 /* help1.html in Resources */,
 				A46636D71972BA2600067C04 /* self.jpg in Resources */,
 				A409DD641916E6EE0062F955 /* redstar.png in Resources */,
+				A46636DC197A99E000067C04 /* studentview.png in Resources */,
 				A4FFF5C918F2EC7200E50485 /* InfoPlist.strings in Resources */,
 				A409DD671916E8370062F955 /* outlinestar.png in Resources */,
 				A409DD5E1916E4470062F955 /* greenstar.png in Resources */,
@@ -503,6 +546,7 @@
 				A4FFF5D818F2EC7200E50485 /* MusicLessonBookIII.xcdatamodeld in Sources */,
 				A400E135192599A500A90E3D /* MLB3AutocompleteTextField.m in Sources */,
 				A4FFF5CF18F2EC7200E50485 /* MLB3AppDelegate.m in Sources */,
+				A46636E6197AA11000067C04 /* XMLReader.m in Sources */,
 				A41A26FB191CF8D30048F265 /* HTEmailAutocompleteTextField.m in Sources */,
 				A405A7D218F346EE003F4595 /* MLB3LessonTableViewController.m in Sources */,
 				A42279B719018D8600747AD6 /* MLB3PiecesChannel.m in Sources */,
@@ -518,6 +562,8 @@
 				A409DD591915A7E90062F955 /* MLB3SummaryViewController.m in Sources */,
 				A4FFF5CB18F2EC7200E50485 /* main.m in Sources */,
 				A405A7D118F346EE003F4595 /* MLB3DetailViewController.m in Sources */,
+				A46636E0197A9ED400067C04 /* GTMFirstViewController.m in Sources */,
+				A46636E3197A9EF500067C04 /* GTMPieceList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +677,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -664,7 +710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -676,6 +722,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MusicLessonBookIII/MusicLessonBookIII.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -684,6 +733,7 @@
 				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
 				INFOPLIST_FILE = "MusicLessonBookIII/MusicLessonBookIII-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -693,6 +743,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MusicLessonBookIII/MusicLessonBookIII.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -701,6 +754,7 @@
 				GCC_PREFIX_HEADER = "MusicLessonBookIII/MusicLessonBookIII-Prefix.pch";
 				INFOPLIST_FILE = "MusicLessonBookIII/MusicLessonBookIII-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
