@@ -91,7 +91,12 @@
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"iCloudDesired"] == nil) {
         firstLaunchWithiCloudAvailable = YES;
-    }
+    } else
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"iCloudDesired"]) {
+        firstLaunchWithiCloudAvailable = NO;
+    } 
+
     
     if (currentiCloudToken) {
         NSData *newTokenData =

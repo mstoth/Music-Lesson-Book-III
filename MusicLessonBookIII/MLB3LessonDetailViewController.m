@@ -572,7 +572,7 @@
 //                }
 //            }
         //}
-        [self presentViewController:mailViewController animated:YES completion:^{
+        [self presentViewController:mailViewController animated:NO completion:^{
             // do nothing
         }];
         
